@@ -1,33 +1,5 @@
 # OperatorNext 🤖
 
-> **项目状态**：本项目目前处于早期开发阶段，核心功能正在积极开发中，尚未实现。
-
-## 路线图
-
-- [ ] **第一阶段：基础设施搭建** (进行中)
-  - [x] Docker 环境配置
-  - [x] 数据库架构设计
-  - [ ] 身份认证系统
-  - [ ] 基础 UI 组件
-
-- [ ] **第二阶段：核心功能**
-  - [ ] 用户管理和组织架构
-  - [ ] 基于角色的访问控制 (RBAC)
-  - [ ] AI 代理管理
-  - [ ] 知识库集成
-
-- [ ] **第三阶段：AI 功能**
-  - [ ] LLM 集成
-  - [ ] 提示词工程界面
-  - [ ] 模型微调能力
-  - [ ] 多模型编排
-
-- [ ] **第四阶段：高级功能**
-  - [ ] 实时协作
-  - [ ] 高级分析和监控
-  - [ ] API 集成能力
-  - [ ] 自定义工作流构建器
-
 <div align="center">
 
 <img src=".github/assets/brand/logo.png" alt="OperatorNext Logo" width="500"/>
@@ -40,9 +12,23 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+---
+
+**智能浏览器自动化平台**
+
+*将自然语言转化为智能浏览器操作*
+
+[快速开始](#-快速开始) • [项目文档](https://github.com/OperatorNext/OperatorNext/tree/main/docs) • [使用示例](#-使用示例) • [参与贡献](#-贡献指南)
+
 </div>
 
 OperatorNext 是一个基于 AI 的智能浏览器操作平台，它能够通过自然语言理解和执行复杂的浏览器任务。通过结合最新的 LLM 技术和浏览器自动化，我们为开发者和用户提供了一个强大的工具，能够轻松实现网页自动化、数据采集、UI 测试等多种场景的应用。
+
+> ⚠️ **项目状态**
+>
+> 本项目目前处于早期开发阶段，核心功能正在积极开发中，尚未实现。
+> 
+> 请注意，在此阶段可能会频繁发生破坏性更改。
 
 ## ✨ 特性
 
@@ -100,17 +86,38 @@ pnpm db:generate
 
 ### 启动服务
 
-1. 启动 Docker 服务（PostgreSQL、MinIO、邮件服务器）
+1. 启动 Docker 服务
 
 ```bash
 docker-compose up -d
 ```
 
 这将启动以下服务：
-- PostgreSQL 数据库（端口 5438）
-- PgAdmin 管理界面（http://localhost:5051）
-- MinIO 对象存储（API：http://localhost:9002，控制台：http://localhost:9003）
-- Maildev 邮件服务（SMTP：1026，Web界面：http://localhost:8026）
+
+| 服务 | 地址 | 描述 |
+|---------|-----|-------------|
+| Web 应用 | http://localhost:3000 | Next.js 前端应用 |
+| PgAdmin | http://localhost:5051 | PostgreSQL 数据库管理 |
+| Maildev | http://localhost:8026 | 邮件测试界面 |
+| MinIO 控制台 | http://localhost:9003 | 对象存储管理 |
+| MinIO API | http://localhost:9002 | S3 兼容 API 端点 |
+| PostgreSQL | localhost:5438 | 数据库（通过 psql 或 GUI 连接） |
+
+### 默认凭据
+
+> ⚠️ 这些是开发环境凭据，请勿在生产环境中使用！
+
+- **PostgreSQL**:
+  - 用户名：operatornext_prod_user
+  - 数据库：operatornext_production
+
+- **PgAdmin**:
+  - 邮箱：admin@operatornext.dev
+  - 密码：见 `.env` 文件
+
+- **MinIO**:
+  - 访问密钥：见 `.env` 文件中的 `MINIO_ROOT_USER`
+  - 密钥：见 `.env` 文件中的 `MINIO_ROOT_PASSWORD`
 
 2. 启动前端开发服务器
 
@@ -185,6 +192,32 @@ ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
 <div align="center">
   <img src="https://api.star-history.com/svg?repos=OperatorNext/OperatorNext&type=Date" />
 </div>
+
+## 🗺️ 路线图
+
+- [ ] **第一阶段：基础设施搭建** (进行中)
+  - [x] Docker 环境配置
+  - [x] 数据库架构设计
+  - [ ] 身份认证系统
+  - [ ] 基础 UI 组件
+
+- [ ] **第二阶段：核心功能**
+  - [ ] 用户管理和组织架构
+  - [ ] 基于角色的访问控制 (RBAC)
+  - [ ] AI 代理管理
+  - [ ] 知识库集成
+
+- [ ] **第三阶段：AI 功能**
+  - [ ] LLM 集成
+  - [ ] 提示词工程界面
+  - [ ] 模型微调能力
+  - [ ] 多模型编排
+
+- [ ] **第四阶段：高级功能**
+  - [ ] 实时协作
+  - [ ] 高级分析和监控
+  - [ ] API 集成能力
+  - [ ] 自定义工作流构建器
 
 ## 📮 联系我们
 

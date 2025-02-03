@@ -1,33 +1,5 @@
 # OperatorNext 🤖
 
-> **Project Status**: This project is in early development stage. Core features are under active development and not yet implemented.
-
-## Roadmap
-
-- [ ] **Phase 1: Infrastructure Setup** (In Progress)
-  - [x] Docker environment setup
-  - [x] Database schema design
-  - [ ] Authentication system
-  - [ ] Basic UI components
-
-- [ ] **Phase 2: Core Features**
-  - [ ] User management and organization structure
-  - [ ] Role-based access control (RBAC)
-  - [ ] AI agent management
-  - [ ] Knowledge base integration
-
-- [ ] **Phase 3: AI Features**
-  - [ ] LLM integration
-  - [ ] Prompt engineering interface
-  - [ ] Model fine-tuning capabilities
-  - [ ] Multi-model orchestration
-
-- [ ] **Phase 4: Advanced Features**
-  - [ ] Real-time collaboration
-  - [ ] Advanced analytics and monitoring
-  - [ ] API integration capabilities
-  - [ ] Custom workflow builder
-
 <div align="center">
 
 <img src=".github/assets/brand/logo.png" alt="OperatorNext Logo" width="500"/>
@@ -40,9 +12,23 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+---
+
+**Your AI-Powered Browser Automation Platform**
+
+*Transforming natural language into intelligent browser actions*
+
+[Get Started](#-getting-started) • [Documentation](https://github.com/OperatorNext/OperatorNext/tree/main/docs) • [Examples](#-usage-example) • [Contributing](#-contributing)
+
 </div>
 
 OperatorNext is an AI-powered intelligent browser automation platform that understands and executes complex browser tasks through natural language processing. By combining cutting-edge LLM technology with browser automation, we provide developers and users with a powerful tool for web automation, data collection, UI testing, and various other scenarios.
+
+> ⚠️ **Project Status**
+>
+> This project is in early development stage. Core features are under active development and not yet implemented.
+> 
+> Please note that breaking changes may occur frequently during this phase.
 
 ## ✨ Features
 
@@ -100,17 +86,38 @@ pnpm db:generate
 
 ### Start Services
 
-1. Start Docker services (PostgreSQL, MinIO, Mail Server)
+1. Start Docker services
 
 ```bash
 docker-compose up -d
 ```
 
-This will start:
-- PostgreSQL database (port 5438)
-- PgAdmin interface (http://localhost:5051)
-- MinIO storage (API: http://localhost:9002, Console: http://localhost:9003)
-- Maildev server (SMTP: 1026, Web UI: http://localhost:8026)
+This will start the following services:
+
+| Service | URL | Description |
+|---------|-----|-------------|
+| Web Application | http://localhost:3000 | Next.js frontend application |
+| PgAdmin | http://localhost:5051 | PostgreSQL database management |
+| Maildev | http://localhost:8026 | Email testing interface |
+| MinIO Console | http://localhost:9003 | Object storage management |
+| MinIO API | http://localhost:9002 | S3-compatible API endpoint |
+| PostgreSQL | localhost:5438 | Database (connect via psql or GUI) |
+
+### Default Credentials
+
+> ⚠️ These are development credentials. Do NOT use in production!
+
+- **PostgreSQL**:
+  - User: operatornext_prod_user
+  - Database: operatornext_production
+
+- **PgAdmin**:
+  - Email: admin@operatornext.dev
+  - Password: See `.env` file
+
+- **MinIO**:
+  - Access Key: See `MINIO_ROOT_USER` in `.env`
+  - Secret Key: See `MINIO_ROOT_PASSWORD` in `.env`
 
 2. Start frontend development server
 
@@ -185,6 +192,32 @@ Thanks to all the developers who have contributed to this project!
 <div align="center">
   <img src="https://api.star-history.com/svg?repos=OperatorNext/OperatorNext&type=Date" />
 </div>
+
+## 🗺️ Roadmap
+
+- [ ] **Phase 1: Infrastructure Setup** (In Progress)
+  - [x] Docker environment setup
+  - [x] Database schema design
+  - [ ] Authentication system
+  - [ ] Basic UI components
+
+- [ ] **Phase 2: Core Features**
+  - [ ] User management and organization structure
+  - [ ] Role-based access control (RBAC)
+  - [ ] AI agent management
+  - [ ] Knowledge base integration
+
+- [ ] **Phase 3: AI Features**
+  - [ ] LLM integration
+  - [ ] Prompt engineering interface
+  - [ ] Model fine-tuning capabilities
+  - [ ] Multi-model orchestration
+
+- [ ] **Phase 4: Advanced Features**
+  - [ ] Real-time collaboration
+  - [ ] Advanced analytics and monitoring
+  - [ ] API integration capabilities
+  - [ ] Custom workflow builder
 
 ## 📮 Contact Us
 
