@@ -159,6 +159,9 @@ importers:
       lucide-react:
         specifier: ^0.474.0
         version: 0.474.0(react@19.0.0)
+      mdx-bundler:
+        specifier: ^10.0.3
+        version: 10.0.3(acorn@8.14.0)(esbuild@0.21.5)
       next:
         specifier: 15.1.6
         version: 15.1.6(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.50.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -7106,7 +7109,7 @@ snapshots:
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       '@types/unist': 3.0.3
       esbuild: 0.21.5
-      vfile: 6.0.2
+      vfile: 6.0.3
       vfile-message: 4.0.2
     transitivePeerDependencies:
       - acorn
@@ -10175,7 +10178,7 @@ snapshots:
       remark-frontmatter: 5.0.0
       remark-mdx-frontmatter: 4.0.0
       uuid: 9.0.1
-      vfile: 6.0.2
+      vfile: 6.0.3
     transitivePeerDependencies:
       - acorn
       - supports-color
@@ -10251,8 +10254,8 @@ snapshots:
   micromark-extension-frontmatter@2.0.0:
     dependencies:
       fault: 2.0.1
-      micromark-util-character: 2.1.0
-      micromark-util-symbol: 2.0.0
+      micromark-util-character: 2.1.1
+      micromark-util-symbol: 2.0.1
       micromark-util-types: 2.0.1
 
   micromark-extension-gfm-autolink-literal@2.1.0:

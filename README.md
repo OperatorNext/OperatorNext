@@ -1,5 +1,33 @@
 # OperatorNext 🤖
 
+> **Project Status**: This project is in early development stage. Core features are under active development and not yet implemented.
+
+## Roadmap
+
+- [ ] **Phase 1: Infrastructure Setup** (In Progress)
+  - [x] Docker environment setup
+  - [x] Database schema design
+  - [ ] Authentication system
+  - [ ] Basic UI components
+
+- [ ] **Phase 2: Core Features**
+  - [ ] User management and organization structure
+  - [ ] Role-based access control (RBAC)
+  - [ ] AI agent management
+  - [ ] Knowledge base integration
+
+- [ ] **Phase 3: AI Features**
+  - [ ] LLM integration
+  - [ ] Prompt engineering interface
+  - [ ] Model fine-tuning capabilities
+  - [ ] Multi-model orchestration
+
+- [ ] **Phase 4: Advanced Features**
+  - [ ] Real-time collaboration
+  - [ ] Advanced analytics and monitoring
+  - [ ] API integration capabilities
+  - [ ] Custom workflow builder
+
 <div align="center">
 
 <img src=".github/assets/brand/logo.png" alt="OperatorNext Logo" width="500"/>
@@ -31,6 +59,7 @@ OperatorNext is an AI-powered intelligent browser automation platform that under
 
 - Docker & Docker Compose
 - Node.js 18+
+- pnpm 10+
 - Chrome/Chromium browser
 
 ### Installation
@@ -56,7 +85,17 @@ cp .env.example .env
 
 ```bash
 cd frontend
-npm install
+pnpm install
+```
+
+4. Initialize database and generate types
+
+```bash
+# Push database schema
+pnpm db:push
+
+# Generate Prisma client and types
+pnpm db:generate
 ```
 
 ### Start Services
@@ -77,7 +116,7 @@ This will start:
 
 ```bash
 cd frontend
-npm run dev
+pnpm dev
 ```
 
 Visit http://localhost:3000 to use the application.
@@ -109,11 +148,13 @@ For more examples, please visit our [documentation](https://github.com/OperatorN
 - MinIO
 
 ### Frontend
-- Next.js 14 (App Router)
-- React
+- Next.js 15 (App Router)
+- React 19
 - TypeScript
 - Tailwind CSS
 - Shadcn UI
+- Prisma
+- Turbo Repo
 
 ## 📝 Documentation
 

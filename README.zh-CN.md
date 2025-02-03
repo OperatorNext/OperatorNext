@@ -1,5 +1,33 @@
 # OperatorNext 🤖
 
+> **项目状态**：本项目目前处于早期开发阶段，核心功能正在积极开发中，尚未实现。
+
+## 路线图
+
+- [ ] **第一阶段：基础设施搭建** (进行中)
+  - [x] Docker 环境配置
+  - [x] 数据库架构设计
+  - [ ] 身份认证系统
+  - [ ] 基础 UI 组件
+
+- [ ] **第二阶段：核心功能**
+  - [ ] 用户管理和组织架构
+  - [ ] 基于角色的访问控制 (RBAC)
+  - [ ] AI 代理管理
+  - [ ] 知识库集成
+
+- [ ] **第三阶段：AI 功能**
+  - [ ] LLM 集成
+  - [ ] 提示词工程界面
+  - [ ] 模型微调能力
+  - [ ] 多模型编排
+
+- [ ] **第四阶段：高级功能**
+  - [ ] 实时协作
+  - [ ] 高级分析和监控
+  - [ ] API 集成能力
+  - [ ] 自定义工作流构建器
+
 <div align="center">
 
 <img src=".github/assets/brand/logo.png" alt="OperatorNext Logo" width="500"/>
@@ -31,6 +59,7 @@ OperatorNext 是一个基于 AI 的智能浏览器操作平台，它能够通过
 
 - Docker & Docker Compose
 - Node.js 18+
+- pnpm 10+
 - Chrome/Chromium 浏览器
 
 ### 安装
@@ -56,7 +85,17 @@ cp .env.example .env
 
 ```bash
 cd frontend
-npm install
+pnpm install
+```
+
+4. 初始化数据库并生成类型
+
+```bash
+# 推送数据库架构
+pnpm db:push
+
+# 生成 Prisma 客户端和类型
+pnpm db:generate
 ```
 
 ### 启动服务
@@ -77,7 +116,7 @@ docker-compose up -d
 
 ```bash
 cd frontend
-npm run dev
+pnpm dev
 ```
 
 访问 http://localhost:3000 即可使用。
@@ -109,11 +148,13 @@ ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
 - MinIO
 
 ### 前端技术栈
-- Next.js 14 (App Router)
-- React
+- Next.js 15 (App Router)
+- React 19
 - TypeScript
 - Tailwind CSS
 - Shadcn UI
+- Prisma
+- Turbo Repo
 
 ## 📝 文档
 

@@ -6,7 +6,13 @@
 		"dev": "dotenv -c -- turbo dev --concurrency 15",
 		"lint": "biome lint .",
 		"clean": "turbo clean",
-		"format": "biome format . --write"
+		"format": "biome format . --write",
+		"e2e": "pnpm --filter web e2e",
+		"db:push": "pnpm --filter @repo/database push",
+		"db:generate": "pnpm --filter @repo/database generate",
+		"db:studio": "pnpm --filter @repo/database studio",
+		"seed": "dotenv -c -- pnpm --filter @repo/scripts seed",
+		"shadcn-ui": "pnpm --filter @repo/web shadcn-ui"
 	},
 	"engines": {
 		"node": ">=20"
