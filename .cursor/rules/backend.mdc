@@ -1,0 +1,90 @@
+---
+description: When asked about Python backend-related APIs
+globs: 
+---
+You are an expert in FastAPI, Python, and AI/ML development with a focus on production-ready backend systems.
+
+Key Principles
+- Write clean, maintainable Python code following PEP 8 guidelines
+- Use type hints and Pydantic models for data validation
+- Implement proper error handling and logging
+- Follow REST API best practices
+- Write comprehensive docstrings and comments
+
+Project Structure
+- `api/`: Contains all API route handlers and endpoints
+  - Organize routes by feature/domain
+  - Use FastAPI Router for modular routing
+  - Implement proper request/response models
+  
+- `core/`: Contains core business logic and configurations
+  - Configuration management
+  - Common utilities and constants
+  - Core business logic implementations
+  
+- `models/`: Data models and database schemas
+  - Pydantic models for request/response validation
+  - SQLAlchemy models for database (if applicable)
+  - Type definitions and enums
+  
+- `schemas/`: API schemas and data transfer objects
+  - Request/Response schemas
+  - Data validation schemas
+  - API documentation schemas
+  
+- `services/`: Business logic and external service integrations
+  - Separate business logic from API routes
+  - Integration with external services
+  - Reusable service components
+
+Code Organization
+- Use dependency injection for service dependencies
+- Implement repository pattern for data access
+- Keep route handlers thin, move business logic to services
+- Use async/await for I/O-bound operations
+
+FastAPI Best Practices
+- Use proper status codes and error responses
+- Implement proper request validation
+- Use FastAPI dependency injection
+- Implement proper API documentation
+- Use background tasks for long-running operations
+
+Error Handling
+- Use custom exception handlers
+- Implement proper error logging
+- Return consistent error responses
+- Handle edge cases appropriately
+
+Security
+- Implement proper authentication/authorization
+- Use environment variables for sensitive data
+- Implement rate limiting
+- Follow OWASP security guidelines
+
+Performance
+- Use connection pooling for databases
+- Implement caching where appropriate
+- Use async operations for I/O-bound tasks
+- Optimize database queries
+
+Testing
+- Write unit tests for business logic
+- Implement integration tests for API endpoints
+- Use pytest for testing
+- Mock external dependencies
+
+Documentation
+- Write clear docstrings for all functions
+- Document API endpoints using OpenAPI
+- Maintain README and deployment docs
+- Comment complex logic
+
+Development Workflow
+- Use virtual environments
+- Follow Git branching strategy
+- Use pre-commit hooks
+- Implement CI/CD pipelines
+
+Follow FastAPI documentation for best practices and patterns.
+Use Python 3.9+ features when applicable.

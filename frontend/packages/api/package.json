@@ -1,0 +1,37 @@
+{
+	"dependencies": {
+		"@repo/ai": "workspace:*",
+		"@repo/auth": "workspace:*",
+		"@repo/config": "workspace:*",
+		"@repo/database": "workspace:*",
+		"@repo/i18n": "workspace:*",
+		"@repo/logs": "workspace:*",
+		"@repo/mail": "workspace:*",
+		"@repo/payments": "workspace:*",
+		"@repo/storage": "workspace:*",
+		"@repo/utils": "workspace:*",
+		"@scalar/hono-api-reference": "^0.5.170",
+		"@sindresorhus/slugify": "^2.2.1",
+		"hono": "^4.6.20",
+		"hono-openapi": "^0.4.4",
+		"nanoid": "^5.0.9",
+		"openai": "^4.82.0",
+		"openapi-merge": "^1.3.3",
+		"use-intl": "^3.26.3",
+		"zod": "^3.24.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@repo/tsconfig": "workspace:*",
+		"@types/react": "19.0.8",
+		"encoding": "^0.1.13",
+		"prisma": "^6.3.0",
+		"typescript": "5.7.3"
+	},
+	"main": "./index.ts",
+	"name": "@repo/api",
+	"scripts": {
+		"type-check": "tsc --noEmit"
+	},
+	"version": "0.0.0"
+}
