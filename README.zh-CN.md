@@ -29,7 +29,7 @@ OperatorNext 是一个基于 AI 的智能浏览器操作平台，它能够通过
 
 ### 环境要求
 
-- Python 3.9+
+- Docker & Docker Compose
 - Node.js 18+
 - Chrome/Chromium 浏览器
 
@@ -42,11 +42,14 @@ git clone https://github.com/OperatorNext/OperatorNext.git
 cd OperatorNext
 ```
 
-2. 安装后端依赖
+2. 复制环境变量模板
 
 ```bash
-cd backend
-pip install -r requirements.txt
+# 复制前端环境变量
+cp frontend/.env.local.example frontend/.env.local
+
+# 复制 Docker 环境变量
+cp .env.example .env
 ```
 
 3. 安装前端依赖
@@ -56,25 +59,19 @@ cd frontend
 npm install
 ```
 
-### 配置
-
-1. 复制环境变量模板文件
-
-```bash
-cp frontend/.env.local.example frontend/.env.local
-cp backend/.env.example backend/.env
-```
-
-2. 配置必要的环境变量（API密钥等）
-
 ### 启动服务
 
-1. 启动后端服务
+1. 启动 Docker 服务（PostgreSQL、MinIO、邮件服务器）
 
 ```bash
-cd backend
-uvicorn main:app --reload
+docker-compose up -d
 ```
+
+这将启动以下服务：
+- PostgreSQL 数据库（端口 5438）
+- PgAdmin 管理界面（http://localhost:5051）
+- MinIO 对象存储（API：http://localhost:9002，控制台：http://localhost:9003）
+- Maildev 邮件服务（SMTP：1026，Web界面：http://localhost:8026）
 
 2. 启动前端开发服务器
 
@@ -108,6 +105,8 @@ ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
 - WebSocket
 - Playwright
 - LangChain
+- PostgreSQL
+- MinIO
 
 ### 前端技术栈
 - Next.js 14 (App Router)

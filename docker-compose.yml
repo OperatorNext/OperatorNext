@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: operatornext-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+      # 生产环境数据库配置
+      PROD_USER: ${POSTGRES_USER}
+      PROD_PASSWORD: ${POSTGRES_PASSWORD}
+      PROD_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d operatornext_production" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 可选: pgAdmin 管理工具
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: operatornext-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "${PGADMIN_PORT}:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # 邮件测试服务
+  maildev:
+    image: maildev/maildev
+    container_name: operatornext-mail
+    ports:
+      - "${MAILDEV_SMTP_PORT}:1025" # SMTP 服务器
+      - "${MAILDEV_WEB_PORT}:1080" # Web UI
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # 对象存储服务
+  minio:
+    image: quay.io/minio/minio
+    container_name: operatornext-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    ports:
+      - "${MINIO_API_PORT}:9000" # API
+      - "${MINIO_CONSOLE_PORT}:9001" # Console
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: [ "CMD", "mc", "ready", "local" ]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+    name: ${POSTGRES_VOLUME_NAME}
+  minio_data:
+    name: ${MINIO_VOLUME_NAME}

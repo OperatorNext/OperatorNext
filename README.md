@@ -29,7 +29,7 @@ OperatorNext is an AI-powered intelligent browser automation platform that under
 
 ### Prerequisites
 
-- Python 3.9+
+- Docker & Docker Compose
 - Node.js 18+
 - Chrome/Chromium browser
 
@@ -42,11 +42,14 @@ git clone https://github.com/OperatorNext/OperatorNext.git
 cd OperatorNext
 ```
 
-2. Install backend dependencies
+2. Copy environment variable templates
 
 ```bash
-cd backend
-pip install -r requirements.txt
+# Copy frontend environment variables
+cp frontend/.env.local.example frontend/.env.local
+
+# Copy Docker environment variables
+cp .env.example .env
 ```
 
 3. Install frontend dependencies
@@ -56,25 +59,19 @@ cd frontend
 npm install
 ```
 
-### Configuration
-
-1. Copy environment variable templates
-
-```bash
-cp frontend/.env.local.example frontend/.env.local
-cp backend/.env.example backend/.env
-```
-
-2. Configure necessary environment variables (API keys, etc.)
-
 ### Start Services
 
-1. Start backend server
+1. Start Docker services (PostgreSQL, MinIO, Mail Server)
 
 ```bash
-cd backend
-uvicorn main:app --reload
+docker-compose up -d
 ```
+
+This will start:
+- PostgreSQL database (port 5438)
+- PgAdmin interface (http://localhost:5051)
+- MinIO storage (API: http://localhost:9002, Console: http://localhost:9003)
+- Maildev server (SMTP: 1026, Web UI: http://localhost:8026)
 
 2. Start frontend development server
 
@@ -108,6 +105,8 @@ For more examples, please visit our [documentation](https://github.com/OperatorN
 - WebSocket
 - Playwright
 - LangChain
+- PostgreSQL
+- MinIO
 
 ### Frontend
 - Next.js 14 (App Router)
