@@ -24,13 +24,11 @@
 
 OperatorNext 是一个基于 AI 的智能浏览器操作平台，它能够通过自然语言理解和执行复杂的浏览器任务。通过结合最新的 LLM 技术和浏览器自动化，我们为开发者和用户提供了一个强大的工具，能够轻松实现网页自动化、数据采集、UI 测试等多种场景的应用。
 
+*主界面展示:*
 <img src=".github/assets/hero.png" alt="Operator Next Hero" width="100%" />
 
-*主界面展示*
-
+*运行时截图展示任务执行:*
 <img src=".github/assets/hero2.png" alt="Operator Next Screenshot" width="100%" />
-
-*运行时截图展示任务执行*
 
 > ⚠️ **项目状态**
 >
