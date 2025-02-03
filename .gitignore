@@ -62,4 +62,8 @@ uploads/
 # Playwright
 **/test-results/
 **/playwright-report/
-**/playwright/.cache/ 
+**/playwright/.cache/
+
+# Keep brand assets
+!.github/assets/
+!static/brand/ 
