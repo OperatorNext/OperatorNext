@@ -67,3 +67,4 @@ uploads/
 # Keep brand assets
 !.github/assets/
 !static/brand/ 
+.vercel

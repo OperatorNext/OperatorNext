@@ -193,32 +193,6 @@ Thanks to all the developers who have contributed to this project!
   <img src="https://api.star-history.com/svg?repos=OperatorNext/OperatorNext&type=Date" />
 </div>
 
-## 🗺️ Roadmap
-
-- [ ] **Phase 1: Infrastructure Setup** (In Progress)
-  - [x] Docker environment setup
-  - [x] Database schema design
-  - [ ] Authentication system
-  - [ ] Basic UI components
-
-- [ ] **Phase 2: Core Features**
-  - [ ] User management and organization structure
-  - [ ] Role-based access control (RBAC)
-  - [ ] AI agent management
-  - [ ] Knowledge base integration
-
-- [ ] **Phase 3: AI Features**
-  - [ ] LLM integration
-  - [ ] Prompt engineering interface
-  - [ ] Model fine-tuning capabilities
-  - [ ] Multi-model orchestration
-
-- [ ] **Phase 4: Advanced Features**
-  - [ ] Real-time collaboration
-  - [ ] Advanced analytics and monitoring
-  - [ ] API integration capabilities
-  - [ ] Custom workflow builder
-
 ## 📮 Contact Us
 
 - Submit Issues: [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues)

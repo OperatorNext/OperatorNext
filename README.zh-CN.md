@@ -193,32 +193,6 @@ ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
   <img src="https://api.star-history.com/svg?repos=OperatorNext/OperatorNext&type=Date" />
 </div>
 
-## 🗺️ 路线图
-
-- [ ] **第一阶段：基础设施搭建** (进行中)
-  - [x] Docker 环境配置
-  - [x] 数据库架构设计
-  - [ ] 身份认证系统
-  - [ ] 基础 UI 组件
-
-- [ ] **第二阶段：核心功能**
-  - [ ] 用户管理和组织架构
-  - [ ] 基于角色的访问控制 (RBAC)
-  - [ ] AI 代理管理
-  - [ ] 知识库集成
-
-- [ ] **第三阶段：AI 功能**
-  - [ ] LLM 集成
-  - [ ] 提示词工程界面
-  - [ ] 模型微调能力
-  - [ ] 多模型编排
-
-- [ ] **第四阶段：高级功能**
-  - [ ] 实时协作
-  - [ ] 高级分析和监控
-  - [ ] API 集成能力
-  - [ ] 自定义工作流构建器
-
 ## 📮 联系我们
 
 - 提交 Issue: [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues)

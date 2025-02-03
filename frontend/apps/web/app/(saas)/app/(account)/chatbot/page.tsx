@@ -5,6 +5,11 @@ import { apiClient } from "@shared/lib/api-client";
 import { getQueryClient } from "@shared/lib/server";
 import { headers } from "next/headers";
 
+interface Chat {
+	id: string;
+	// ... 其他聊天相关字段
+}
+
 export default async function AiDemoPage() {
 	const queryClient = getQueryClient();
 
@@ -22,7 +27,7 @@ export default async function AiDemoPage() {
 			throw new Error("Failed to fetch chats");
 		}
 
-		return response.json();
+		return response.json() as Promise<Chat[]>;
 	})();
 
 	await queryClient.prefetchQuery({
