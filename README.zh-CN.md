@@ -2,11 +2,11 @@
 
 <div align="center">
 
-[![GitHub license](https://img.shields.io/github/license/yourusername/OperatorNext)](https://github.com/yourusername/OperatorNext/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/OperatorNext)](https://github.com/yourusername/OperatorNext/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/OperatorNext)](https://github.com/yourusername/OperatorNext/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/OperatorNext)](https://github.com/yourusername/OperatorNext/pulls)
-[![Tests](https://github.com/yourusername/OperatorNext/workflows/Tests/badge.svg)](https://github.com/yourusername/OperatorNext/actions)
+[![GitHub license](https://img.shields.io/github/license/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/pulls)
+[![Tests](https://github.com/OperatorNext/OperatorNext/actions/workflows/test.yml/badge.svg)](https://github.com/OperatorNext/OperatorNext/actions)
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
@@ -36,7 +36,7 @@ OperatorNext 是一个基于 AI 的智能浏览器操作平台，它能够通过
 1. 克隆仓库
 
 ```bash
-git clone https://github.com/yourusername/OperatorNext.git
+git clone https://github.com/OperatorNext/OperatorNext.git
 cd OperatorNext
 ```
 
@@ -97,7 +97,7 @@ task_id = response.json()["task_id"]
 ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
 ```
 
-更多示例请查看 [文档](https://docs.operatornext.com)。
+更多示例请查看我们的[文档](https://github.com/OperatorNext/OperatorNext/tree/main/docs)。
 
 ## 🔧 技术架构
 
@@ -116,7 +116,7 @@ ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
 
 ## 📝 文档
 
-详细文档请访问我们的 [文档网站](https://docs.operatornext.com)。
+详细文档请访问我们的[项目文档](https://github.com/OperatorNext/OperatorNext/tree/main/docs)。
 
 ## 🤝 贡献指南
 
@@ -128,21 +128,25 @@ ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
 
 ## 🙏 致谢
 
+本项目受到以下项目的启发和技术支持：
+- [browser-use](https://github.com/browser-use/browser-use)
+- [browserless](https://github.com/browserless/browserless)
+
 感谢所有为这个项目做出贡献的开发者们！
 
 <div align="center">
-  <img src="https://contrib.rocks/image?repo=yourusername/OperatorNext" />
+  <img src="https://contrib.rocks/image?repo=OperatorNext/OperatorNext" />
 </div>
 
 ## 🌟 Star History
 
 <div align="center">
-  <img src="https://api.star-history.com/svg?repos=yourusername/OperatorNext&type=Date" />
+  <img src="https://api.star-history.com/svg?repos=OperatorNext/OperatorNext&type=Date" />
 </div>
 
 ## 📮 联系我们
 
-- 提交 Issue: [GitHub Issues](https://github.com/yourusername/OperatorNext/issues)
-- 邮件联系: your-email@example.com
-- 微信公众号: OperatorNext
-- Discord: [加入我们的 Discord](https://discord.gg/operatornext) 
+- 提交 Issue: [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues)
+- 邮件联系: hi@operatornext.com
+- Telegram: [@HaiPro_2025](https://t.me/HaiPro_2025)
+- 公司: CyberPoet LLC 

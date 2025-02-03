@@ -1,0 +1,20 @@
+# These owners will be the default owners for everything in the repo.
+*       @HaiPro
+
+# Backend code
+/backend/ @HaiPro
+/backend/api/ @HaiPro
+/backend/models/ @HaiPro
+/backend/services/ @HaiPro
+
+# Frontend code
+/frontend/ @HaiPro
+/frontend/app/ @HaiPro
+/frontend/components/ @HaiPro
+
+# Documentation
+/docs/ @HaiPro
+*.md @HaiPro
+
+# GitHub specific files
+/.github/ @HaiPro 

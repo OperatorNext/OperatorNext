@@ -2,11 +2,11 @@
 
 <div align="center">
 
-[![GitHub license](https://img.shields.io/github/license/yourusername/OperatorNext)](https://github.com/yourusername/OperatorNext/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/OperatorNext)](https://github.com/yourusername/OperatorNext/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/OperatorNext)](https://github.com/yourusername/OperatorNext/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/OperatorNext)](https://github.com/yourusername/OperatorNext/pulls)
-[![Tests](https://github.com/yourusername/OperatorNext/workflows/Tests/badge.svg)](https://github.com/yourusername/OperatorNext/actions)
+[![GitHub license](https://img.shields.io/github/license/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/pulls)
+[![Tests](https://github.com/OperatorNext/OperatorNext/actions/workflows/test.yml/badge.svg)](https://github.com/OperatorNext/OperatorNext/actions)
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
@@ -36,7 +36,7 @@ OperatorNext is an AI-powered intelligent browser automation platform that under
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/OperatorNext.git
+git clone https://github.com/OperatorNext/OperatorNext.git
 cd OperatorNext
 ```
 
@@ -97,7 +97,7 @@ task_id = response.json()["task_id"]
 ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
 ```
 
-For more examples, please visit our [documentation](https://docs.operatornext.com).
+For more examples, please visit our [documentation](https://github.com/OperatorNext/OperatorNext/tree/main/docs).
 
 ## 🔧 Technology Stack
 
@@ -116,7 +116,7 @@ For more examples, please visit our [documentation](https://docs.operatornext.co
 
 ## 📝 Documentation
 
-For detailed documentation, please visit our [documentation site](https://docs.operatornext.com).
+For detailed documentation, please visit our [documentation](https://github.com/OperatorNext/OperatorNext/tree/main/docs).
 
 ## 🤝 Contributing
 
@@ -128,21 +128,25 @@ This project is licensed under the [MIT](LICENSE) License.
 
 ## 🙏 Acknowledgments
 
+This project is inspired by and built upon:
+- [browser-use](https://github.com/browser-use/browser-use)
+- [browserless](https://github.com/browserless/browserless)
+
 Thanks to all the developers who have contributed to this project!
 
 <div align="center">
-  <img src="https://contrib.rocks/image?repo=yourusername/OperatorNext" />
+  <img src="https://contrib.rocks/image?repo=OperatorNext/OperatorNext" />
 </div>
 
 ## 🌟 Star History
 
 <div align="center">
-  <img src="https://api.star-history.com/svg?repos=yourusername/OperatorNext&type=Date" />
+  <img src="https://api.star-history.com/svg?repos=OperatorNext/OperatorNext&type=Date" />
 </div>
 
 ## 📮 Contact Us
 
-- Submit Issues: [GitHub Issues](https://github.com/yourusername/OperatorNext/issues)
-- Email: your-email@example.com
-- WeChat Official Account: OperatorNext
-- Discord: [Join our Discord](https://discord.gg/operatornext) 
+- Submit Issues: [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues)
+- Email: hi@operatornext.com
+- Telegram: [@HaiPro_2025](https://t.me/HaiPro_2025)
+- Company: CyberPoet LLC 

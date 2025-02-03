@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "OperatorNext: AI-powered Browser Automation Platform"
+abstract: "An intelligent browser automation platform that understands and executes complex browser tasks through natural language processing."
+type: software
+authors:
+  - family-names: Liu
+    given-names: Hai
+    alias: HaiPro
+version: 0.1.0
+date-released: 2024-02-03
+repository-code: "https://github.com/OperatorNext/OperatorNext"
+keywords:
+  - browser-automation
+  - ai-agents
+  - natural-language-processing
+  - web-automation
+  - typescript
+  - python
+license: MIT
+references:
+  - type: software
+    title: "browser-use"
+    repository-code: "https://github.com/browser-use/browser-use"
+  - type: software
+    title: "browserless"
+    repository-code: "https://github.com/browserless/browserless" 
