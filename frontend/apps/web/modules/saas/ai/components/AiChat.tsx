@@ -62,9 +62,14 @@ export function AiChat({ organizationId }: { organizationId?: string }) {
 	}, []);
 
 	const createNewChat = useCallback(async () => {
-		const newChat = await createChatMutation.mutateAsync({
+		const response = await createChatMutation.mutateAsync({
 			organizationId,
 		});
+		const newChat = {
+			id: response.id,
+			createdAt: response.createdAt,
+			messages: [] as ChatMessage[]
+		};
 		await queryClient.invalidateQueries({
 			queryKey: aiChatListQueryKey(organizationId),
 		});

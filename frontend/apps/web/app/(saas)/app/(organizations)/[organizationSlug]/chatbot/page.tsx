@@ -1,4 +1,3 @@
-import { AiChat } from "@saas/ai/components/AiChat";
 import { aiChatListQueryKey, aiChatQueryKey } from "@saas/ai/lib/api";
 import { getActiveOrganization } from "@saas/auth/lib/server";
 import { PageHeader } from "@saas/shared/components/PageHeader";
@@ -81,8 +80,6 @@ export default async function AiDemoPage({
 				title="AI Chatbot"
 				subtitle="This is an example chatbot built with the OpenAI API"
 			/>
-
-			<AiChat organizationId={organizationId} />
 		</>
 	);
 }

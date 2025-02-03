@@ -24,6 +24,14 @@
 
 OperatorNext 是一个基于 AI 的智能浏览器操作平台，它能够通过自然语言理解和执行复杂的浏览器任务。通过结合最新的 LLM 技术和浏览器自动化，我们为开发者和用户提供了一个强大的工具，能够轻松实现网页自动化、数据采集、UI 测试等多种场景的应用。
 
+<img src=".github/assets/hero.png" alt="Operator Next Hero" width="100%" />
+
+*主界面展示*
+
+<img src=".github/assets/hero2.png" alt="Operator Next Screenshot" width="100%" />
+
+*运行时截图展示任务执行*
+
 > ⚠️ **项目状态**
 >
 > 本项目目前处于早期开发阶段，核心功能正在积极开发中，尚未实现。
@@ -113,89 +121,4 @@ docker-compose up -d
 
 - **PgAdmin**:
   - 邮箱：admin@operatornext.dev
-  - 密码：见 `.env` 文件
-
-- **MinIO**:
-  - 访问密钥：见 `.env` 文件中的 `MINIO_ROOT_USER`
-  - 密钥：见 `.env` 文件中的 `MINIO_ROOT_PASSWORD`
-
-2. 启动前端开发服务器
-
-```bash
-cd frontend
-pnpm dev
-```
-
-访问 http://localhost:3000 即可使用。
-
-## 📖 使用示例
-
-```python
-# 创建一个新的浏览器任务
-task = {
-    "task_description": "登录GitHub并star一个项目"
-}
-response = requests.post("http://localhost:8000/api/tasks", json=task)
-task_id = response.json()["task_id"]
-
-# 通过WebSocket监听任务状态
-ws = websockets.connect(f"ws://localhost:8000/ws/tasks/{task_id}")
-```
-
-更多示例请查看我们的[文档](https://github.com/OperatorNext/OperatorNext/tree/main/docs)。
-
-## 🔧 技术架构
-
-### 后端技术栈
-- FastAPI
-- WebSocket
-- Playwright
-- LangChain
-- PostgreSQL
-- MinIO
-
-### 前端技术栈
-- Next.js 15 (App Router)
-- React 19
-- TypeScript
-- Tailwind CSS
-- Shadcn UI
-- Prisma
-- Turbo Repo
-
-## 📝 文档
-
-详细文档请访问我们的[项目文档](https://github.com/OperatorNext/OperatorNext/tree/main/docs)。
-
-## 🤝 贡献指南
-
-我们欢迎所有形式的贡献，无论是新功能、文档改进还是问题反馈。请查看我们的 [贡献指南](CONTRIBUTING.md) 了解更多信息。
-
-## 📄 开源协议
-
-本项目采用 [MIT](LICENSE) 协议开源。
-
-## 🙏 致谢
-
-本项目受到以下项目的启发和技术支持：
-- [browser-use](https://github.com/browser-use/browser-use)
-- [browserless](https://github.com/browserless/browserless)
-
-感谢所有为这个项目做出贡献的开发者们！
-
-<div align="center">
-  <img src="https://contrib.rocks/image?repo=OperatorNext/OperatorNext" />
-</div>
-
-## 🌟 Star History
-
-<div align="center">
-  <img src="https://api.star-history.com/svg?repos=OperatorNext/OperatorNext&type=Date" />
-</div>
-
-## 📮 联系我们
-
-- 提交 Issue: [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues)
-- 邮件联系: hi@operatornext.com
-- Telegram: [@HaiPro_2025](https://t.me/HaiPro_2025)
-- 公司: CyberPoet LLC 
+  - 密码：见 `.env`
