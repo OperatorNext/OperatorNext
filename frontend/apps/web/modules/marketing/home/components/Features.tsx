@@ -144,8 +144,7 @@ export function Features() {
 						Features your clients will love
 					</h2>
 					<p className="mt-6 text-balance text-lg opacity-50">
-						In this section you can showcase all the features of your SaaS
-						provides and how they can benefit your clients.
+						In this section you can showcase all the features of your SaaS provides and how they can benefit your clients.
 					</p>
 				</div>
 
@@ -228,9 +227,8 @@ export function Features() {
 											<Image
 												src={tab.image}
 												alt={tab.title}
-												className={cn(" h-auto w-full max-w-xl", {
-													"rounded-2xl border-4 border-secondary/10":
-														tab.imageBorder,
+												className={cn("h-auto w-full max-w-xl", {
+													"rounded-2xl border-4 border-secondary/10": tab.imageBorder,
 												})}
 											/>
 										)}

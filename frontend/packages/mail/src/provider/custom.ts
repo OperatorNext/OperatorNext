@@ -12,7 +12,6 @@ export const send: SendEmailHandler = async ({ to, subject, text, html }) => {
 		text,
 		html: html || text,
 	});
-	
 	// TODO: 实现实际的邮件发送逻辑
 	// handle your custom email sending logic here
 };
