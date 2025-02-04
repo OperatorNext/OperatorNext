@@ -28,6 +28,7 @@
 		"@sindresorhus/slugify": "^2.2.1",
 		"@tanstack/react-query": "^5.66.0",
 		"@tanstack/react-table": "^8.20.6",
+		"@vercel/analytics": "^1.4.1",
 		"ai": "^4.1.17",
 		"better-auth": "1.1.15",
 		"boring-avatars": "^1.11.2",
