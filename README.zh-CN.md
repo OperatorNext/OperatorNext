@@ -210,5 +210,10 @@ docker-compose up -d
 - [GitHub Discussions](https://github.com/OperatorNext/OperatorNext/discussions) - 技术讨论和问题解答
 - 电子邮件：hi@operatornext.com
 - Telegram：[@HaiPro_2025](https://t.me/HaiPro_2025)
+- 微信：扫描下方二维码（或搜索微信号：HaiPro_2025）
 
-公司：CyberPoet LLC
+<div align="center">
+  <img src=".github/assets/wechat.png" alt="微信二维码" width="200"/>
+</div>
+
+公司：CyberPoet LLC（职位：CEO）

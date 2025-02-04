@@ -269,5 +269,10 @@ Join our growing community:
 - [GitHub Discussions](https://github.com/OperatorNext/OperatorNext/discussions) - Technical discussions and questions
 - Email: hi@operatornext.com
 - Telegram: [@HaiPro_2025](https://t.me/HaiPro_2025)
+- WeChat: Scan QR code below (or search WeChat ID: HaiPro_2025)
 
-Company: CyberPoet LLC 
+<div align="center">
+  <img src=".github/assets/wechat.png" alt="WeChat QR Code" width="200"/>
+</div>
+
+Company: CyberPoet LLC (Position: CEO) 
