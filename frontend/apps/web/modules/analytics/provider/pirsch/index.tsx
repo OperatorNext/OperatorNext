@@ -4,6 +4,12 @@ import Script from "next/script";
 
 const pirschCode = process.env.NEXT_PUBLIC_PIRSCH_CODE as string;
 
+declare global {
+	interface Window {
+		pirsch?: (event: string, options?: { meta?: Record<string, unknown> }) => void;
+	}
+}
+
 export function AnalyticsScript() {
 	return (
 		<Script
@@ -18,11 +24,11 @@ export function AnalyticsScript() {
 
 export function useAnalytics() {
 	const trackEvent = (event: string, data?: Record<string, unknown>) => {
-		if (typeof window === "undefined" || !(window as any).pirsch) {
+		if (typeof window === "undefined" || !window.pirsch) {
 			return;
 		}
 
-		(window as any).pirsch(event, {
+		window.pirsch(event, {
 			meta: data,
 		});
 	};

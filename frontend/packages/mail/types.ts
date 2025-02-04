@@ -1,4 +1,4 @@
-import type { Locale } from "@repo/i18n";
+import type { Locale, Messages } from "@repo/i18n";
 
 export interface SendEmailParams {
 	to: string;
@@ -15,5 +15,5 @@ export interface MailProvider {
 
 export type BaseMailProps = {
 	locale: Locale;
-	translations: Record<string, string>;
+	translations: Messages;
 };

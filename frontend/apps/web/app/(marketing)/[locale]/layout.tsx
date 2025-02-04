@@ -1,6 +1,7 @@
 import { Footer } from "@marketing/shared/components/Footer";
 import { NavBar } from "@marketing/shared/components/NavBar";
 import { config } from "@repo/config";
+import type { Locale } from "@repo/i18n";
 import { SessionProvider } from "@saas/auth/components/SessionProvider";
 import { Document } from "@shared/components/Document";
 import { I18nProvider as FumadocsI18nProvider } from "fumadocs-ui/i18n";
@@ -24,7 +25,7 @@ export default async function MarketingLayout({
 
 	setRequestLocale(locale);
 
-	if (!locales.includes(locale as any)) {
+	if (!locales.includes(locale as Locale)) {
 		notFound();
 	}
 

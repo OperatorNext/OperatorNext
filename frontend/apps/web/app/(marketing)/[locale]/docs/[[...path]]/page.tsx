@@ -9,6 +9,7 @@ import { DocsBody, DocsPage } from "fumadocs-ui/page";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { docsSource } from "../../../../docs-source";
+import type { ImageProps } from "next/image";
 
 export default async function DocumentationPage(props: {
 	params: Promise<{ path?: string[]; locale: string }>;
@@ -56,7 +57,7 @@ export default async function DocumentationPage(props: {
 							Files,
 							img: (props) => (
 								<ImageZoom
-									{...(props as any)}
+									{...(props as ImageProps)}
 									className="rounded-lg border-4 border-secondary/10"
 								/>
 							),

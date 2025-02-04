@@ -19,6 +19,7 @@ export async function getTemplate<T extends TemplateId>({
 	const translations = await getMessagesForLocale(locale);
 
 	const email = template({
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		...(context as any),
 		locale,
 		translations,

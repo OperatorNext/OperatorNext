@@ -18,6 +18,13 @@ import nProgress from "nprogress";
 import { type ReactNode, useEffect, useState } from "react";
 import { ActiveOrganizationContext } from "../lib/active-organization-context";
 
+interface SessionData {
+	session?: {
+		activeOrganizationId?: string;
+		userId?: string;
+	};
+}
+
 export function ActiveOrganizationProvider({
 	children,
 }: {
@@ -85,7 +92,7 @@ export function ActiveOrganizationProvider({
 			});
 		}
 
-		await queryClient.setQueryData(sessionQueryKey, (data: any) => {
+		await queryClient.setQueryData(sessionQueryKey, (data: SessionData) => {
 			return {
 				...data,
 				session: {
@@ -104,7 +111,7 @@ export function ActiveOrganizationProvider({
 		if (!loaded && activeOrganization !== undefined) {
 			setLoaded(true);
 		}
-	}, [activeOrganization]);
+	}, [loaded, activeOrganization]);
 
 	const activeOrganizationUserRole = activeOrganization?.members.find(
 		(member) => member.userId === session?.userId,

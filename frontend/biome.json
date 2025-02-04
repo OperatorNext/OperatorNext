@@ -34,7 +34,13 @@
 		"enabled": true
 	},
 	"files": {
-		"ignore": ["./packages/database/src/zod/index.ts"]
+		"ignore": [
+			"./packages/database/src/zod/index.ts",
+			"**/playwright-report/**",
+			"**/node_modules/**",
+			"**/dist/**",
+			"**/.next/**"
+		]
 	},
 	"javascript": {
 		"jsxRuntime": "reactClassic"

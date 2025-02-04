@@ -4,6 +4,12 @@ import Script from "next/script";
 
 const plausibleUrl = process.env.NEXT_PUBLIC_PLAUSIBLE_URL as string;
 
+declare global {
+	interface Window {
+		plausible: (event: string, options: { props?: Record<string, unknown> }) => void;
+	}
+}
+
 export function AnalyticsScript() {
 	return (
 		<Script
@@ -17,11 +23,11 @@ export function AnalyticsScript() {
 
 export function useAnalytics() {
 	const trackEvent = (event: string, data?: Record<string, unknown>) => {
-		if (typeof window === "undefined" || !(window as any).plausible) {
+		if (typeof window === "undefined" || !window.plausible) {
 			return;
 		}
 
-		(window as any).plausible(event, {
+		window.plausible(event, {
 			props: data,
 		});
 	};

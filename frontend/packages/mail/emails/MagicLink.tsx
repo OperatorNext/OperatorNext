@@ -1,11 +1,14 @@
 import { Link, Text } from "@react-email/components";
 import React from "react";
 import { createTranslator } from "use-intl/core";
+import type { Messages } from "@repo/i18n";
 import PrimaryButton from "../src/components/PrimaryButton";
 import Wrapper from "../src/components/Wrapper";
 import { defaultTranslations } from "../src/util/translations";
 import { defaultLocale } from "../src/util/translations";
 import type { BaseMailProps } from "../types";
+
+type MailMessages = Pick<Messages, "mail">;
 
 export function MagicLink({
 	url,
