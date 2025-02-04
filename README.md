@@ -9,6 +9,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/pulls)
 [![Tests](https://github.com/OperatorNext/OperatorNext/actions/workflows/test.yml/badge.svg)](https://github.com/OperatorNext/OperatorNext/actions)
+[![Discord](https://img.shields.io/discord/1336375322379161661?logo=discord&logoColor=white)](https://discord.gg/zafb9TzYYA)
+[![Coverage Status](https://coveralls.io/repos/github/OperatorNext/OperatorNext/badge.svg)](https://coveralls.io/github/OperatorNext/OperatorNext)
+[![Version](https://img.shields.io/github/v/release/OperatorNext/OperatorNext?include_prereleases&label=version)](https://github.com/OperatorNext/OperatorNext/releases)
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
@@ -18,7 +21,7 @@
 
 *LLM-Powered Browser Automation Agent*
 
-[Get Started](#-getting-started) • [Documentation](https://github.com/OperatorNext/OperatorNext/tree/main/docs) • [Examples](#-usage-example) • [Contributing](#-contributing)
+[Get Started](#-getting-started) • [Documentation](https://github.com/OperatorNext/OperatorNext/tree/main/docs) • [Examples](#-usage-example) • [Contributing](#-contributing) • [Demo](https://operatornext.com)
 
 </div>
 
@@ -79,6 +82,8 @@ Perfect for:
 - 🎨 **Modern Developer Experience** - Beautiful UI/UX built with Next.js and Tailwind CSS, extensive API documentation
 
 ## 🚀 Getting Started
+
+Try our online demo at [operatornext.com](https://operatornext.com) or set up your own instance:
 
 ### Prerequisites
 

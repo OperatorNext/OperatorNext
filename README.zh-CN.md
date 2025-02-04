@@ -9,6 +9,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/pulls)
 [![Tests](https://github.com/OperatorNext/OperatorNext/actions/workflows/test.yml/badge.svg)](https://github.com/OperatorNext/OperatorNext/actions)
+[![Discord](https://img.shields.io/discord/1336375322379161661?logo=discord&logoColor=white)](https://discord.gg/zafb9TzYYA)
+[![Coverage Status](https://coveralls.io/repos/github/OperatorNext/OperatorNext/badge.svg)](https://coveralls.io/github/OperatorNext/OperatorNext)
+[![Version](https://img.shields.io/github/v/release/OperatorNext/OperatorNext?include_prereleases&label=version)](https://github.com/OperatorNext/OperatorNext/releases)
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
@@ -18,7 +21,7 @@
 
 *基于大语言模型的智能浏览器自动化代理*
 
-[快速开始](#-快速开始) • [项目文档](https://github.com/OperatorNext/OperatorNext/tree/main/docs) • [使用示例](#-使用示例) • [参与贡献](#-贡献指南)
+[快速开始](#-快速开始) • [项目文档](https://github.com/OperatorNext/OperatorNext/tree/main/docs) • [使用示例](#-使用示例) • [参与贡献](#-贡献指南) • [在线演示](https://operatornext.com)
 
 </div>
 
@@ -79,6 +82,8 @@ OperatorNext 为开发者提供：
 - 🎨 **现代开发体验** - 基于 Next.js 和 Tailwind CSS 构建的精美 UI/UX，提供详尽的 API 文档
 
 ## 🚀 快速开始
+
+你可以在 [operatornext.com](https://operatornext.com) 体验在线演示，或按以下步骤部署自己的实例：
 
 ### 环境要求
 
