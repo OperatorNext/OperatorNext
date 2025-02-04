@@ -3,6 +3,9 @@ name: Validate PRs
 on:
   pull_request:
     branches: [main]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/**'
 
 env:
   DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -11,6 +14,9 @@ jobs:
   lint:
     name: Lint code
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - uses: actions/checkout@v4
       - name: Setup Biome
@@ -21,6 +27,9 @@ jobs:
     name: Run e2e tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,5 +44,5 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: apps/web/playwright-report/
+          path: frontend/apps/web/playwright-report/
           retention-days: 30
