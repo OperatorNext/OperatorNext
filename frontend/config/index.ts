@@ -124,12 +124,13 @@ export const config = {
 					"社区支持",
 					"基础任务模板",
 					"标准执行速度",
-					"7 天任务历史记录"
+					"7 天任务历史记录",
 				],
 				prices: [
 					{
 						type: "recurring",
-						productId: process.env.NEXT_PUBLIC_PRODUCT_ID_FREE as string,
+						productId: process.env
+							.NEXT_PUBLIC_PRODUCT_ID_FREE as string,
 						interval: "month",
 						amount: 0,
 						currency: "USD",
@@ -150,12 +151,13 @@ export const config = {
 					"30 天任务历史记录",
 					"API 访问权限",
 					"高级数据导出",
-					"团队协作功能"
+					"团队协作功能",
 				],
 				prices: [
 					{
 						type: "recurring",
-						productId: process.env.NEXT_PUBLIC_PRODUCT_ID_PRO_MONTHLY as string,
+						productId: process.env
+							.NEXT_PUBLIC_PRODUCT_ID_PRO_MONTHLY as string,
 						interval: "month",
 						amount: 19.99,
 						currency: "USD",
@@ -164,7 +166,8 @@ export const config = {
 					},
 					{
 						type: "recurring",
-						productId: process.env.NEXT_PUBLIC_PRODUCT_ID_PRO_YEARLY as string,
+						productId: process.env
+							.NEXT_PUBLIC_PRODUCT_ID_PRO_YEARLY as string,
 						interval: "year",
 						amount: 199.99,
 						currency: "USD",
@@ -190,12 +193,13 @@ export const config = {
 					"高级安全控制面板",
 					"私有化部署选项",
 					"SLA 服务保障",
-					"专属培训服务"
+					"专属培训服务",
 				],
 				prices: [
 					{
 						type: "recurring",
-						productId: process.env.NEXT_PUBLIC_PRODUCT_ID_ENTERPRISE as string,
+						productId: process.env
+							.NEXT_PUBLIC_PRODUCT_ID_ENTERPRISE as string,
 						interval: "month",
 						amount: 999,
 						currency: "USD",
