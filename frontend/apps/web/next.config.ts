@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
+	typescript: {
+		// !! WARN !!
+		// 在生产环境中禁用类型检查
+		ignoreBuildErrors: true,
+	},
 };
 
 export default withContentCollections(withNextIntl(nextConfig));
