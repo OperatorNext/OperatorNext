@@ -1,12 +1,9 @@
-import type { config } from "@repo/config";
-import { useTranslations } from "next-intl";
+import { config } from "@repo/config";
 import type { ReactNode } from "react";
 
 type ProductReferenceId = keyof (typeof config)["payments"]["plans"];
 
 export function usePlanData() {
-	const t = useTranslations();
-
 	const planData: Record<
 		ProductReferenceId,
 		{
@@ -16,28 +13,19 @@ export function usePlanData() {
 		}
 	> = {
 		free: {
-			title: t("pricing.products.free.title"),
-			description: t("pricing.products.free.description"),
-			features: [
-				t("pricing.products.free.features.anotherFeature"),
-				t("pricing.products.free.features.limitedSupport"),
-			],
+			title: config.payments.plans.free.title || "",
+			description: config.payments.plans.free.description || "",
+			features: config.payments.plans.free.features || [],
 		},
 		pro: {
-			title: t("pricing.products.pro.title"),
-			description: t("pricing.products.pro.description"),
-			features: [
-				t("pricing.products.pro.features.anotherFeature"),
-				t("pricing.products.pro.features.fullSupport"),
-			],
+			title: config.payments.plans.pro.title || "",
+			description: config.payments.plans.pro.description || "",
+			features: config.payments.plans.pro.features || [],
 		},
 		enterprise: {
-			title: t("pricing.products.enterprise.title"),
-			description: t("pricing.products.enterprise.description"),
-			features: [
-				t("pricing.products.enterprise.features.unlimitedProjects"),
-				t("pricing.products.enterprise.features.enterpriseSupport"),
-			],
+			title: config.payments.plans.enterprise.title || "",
+			description: config.payments.plans.enterprise.description || "",
+			features: config.payments.plans.enterprise.features || [],
 		},
 		// lifetime: {
 		// 	title: t("pricing.products.lifetime.title"),

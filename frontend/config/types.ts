@@ -59,6 +59,9 @@ export type Config = {
 				isFree?: boolean;
 				isEnterprise?: boolean;
 				recommended?: boolean;
+				title?: string;
+				description?: string;
+				features?: string[];
 				prices?: Array<
 					{
 						productId: string;
