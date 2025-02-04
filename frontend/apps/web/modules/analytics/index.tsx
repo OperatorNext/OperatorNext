@@ -1,1 +1,1 @@
-export * from "./provider/custom";
+export * from "./provider/vercel";
