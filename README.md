@@ -4,7 +4,7 @@
 
 <img src=".github/assets/brand/logo.png" alt="OperatorNext Logo" width="500"/>
 
-[![GitHub license](https://img.shields.io/github/license/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/OperatorNext/OperatorNext/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/pulls)
@@ -14,21 +14,23 @@
 
 ---
 
-**Your AI-Powered Browser Automation Platform**
+**Open-Source Alternative to OpenAI Operator**
 
-*Transforming natural language into intelligent browser actions*
+*LLM-Powered Browser Automation Agent*
 
 [Get Started](#-getting-started) • [Documentation](https://github.com/OperatorNext/OperatorNext/tree/main/docs) • [Examples](#-usage-example) • [Contributing](#-contributing)
 
 </div>
 
-OperatorNext is an AI-powered intelligent browser automation platform that understands and executes complex browser tasks through natural language processing. By combining cutting-edge LLM technology with browser automation, we provide developers and users with a powerful tool for web automation, data collection, UI testing, and various other scenarios.
+OperatorNext is an open-source AI agent platform that understands and executes complex browser tasks through natural language processing and visual reasoning. By combining state-of-the-art LLM technologies (including GPT-4o, Claude, and more) with browser automation, we provide developers and users with a powerful Computer-Using Agent (CUA) for web automation, data collection, UI testing, and various other scenarios.
 
-*Main interface:*
-<img src=".github/assets/hero.png" alt="Operator Next Hero" width="100%" />
-
-*Runtime screenshot showing task execution:*
-<img src=".github/assets/hero2.png" alt="Operator Next Screenshot" width="100%" />
+<div align="center">
+  <p><strong>🖥️ Modern Interface with Real-time Task Monitoring</strong></p>
+  <img src=".github/assets/hero.png" alt="Operator Next Hero" width="100%" />
+  
+  <p><strong>🤖 Intelligent Task Execution with Visual Feedback</strong></p>
+  <img src=".github/assets/hero2.png" alt="Operator Next Screenshot" width="100%" />
+</div>
 
 > ⚠️ **Project Status**
 >
@@ -36,14 +38,45 @@ OperatorNext is an AI-powered intelligent browser automation platform that under
 > 
 > Please note that breaking changes may occur frequently during this phase.
 
+### 🌟 Why Choose OperatorNext?
+
+| Feature | OperatorNext | OpenAI Operator |
+|---------|-------------|-----------------|
+| License | MIT Open Source | Proprietary |
+| Deployment | Self-hosted & Cloud | Cloud-only |
+| Data Privacy | Local Processing | Cloud Processing |
+| Customization | Full Control | Limited |
+| Cost | Free & Self-hosted | Usage-based Pricing |
+| API Integration | Flexible & Open | Restricted |
+
+OperatorNext empowers developers with:
+- 🔍 **Web Scraping & Data Extraction** - Automated data collection with pixel-level accuracy
+- 🧪 **End-to-End Testing** - Modern alternative to Selenium for UI/UX testing
+- 🤖 **RPA (Robotic Process Automation)** - Chain-of-Thought planning for complex tasks
+- 🌐 **Web Testing & QA** - Visual reasoning based quality assurance
+- 📊 **Data Mining & Analytics** - Intelligent web data gathering with self-correction
+- 🔄 **Workflow Automation** - Custom workflow design with plugin ecosystem
+
+Perfect for:
+- DevOps and QA Teams (Automated Testing)
+- Data Scientists and Researchers (Web Scraping)
+- Digital Marketing Professionals (Form Automation)
+- Business Process Automation (RPA Solutions)
+- Web Developers and Testers (GUI Testing)
+- Enterprise Automation Solutions (Custom Workflows)
+
 ## ✨ Features
 
-- 🤖 **Intelligent Task Execution** - Complete complex browser operations through natural language descriptions
-- 🔄 **Real-time Status Updates** - WebSocket-based real-time task execution status and progress
-- 🎯 **Precise Control** - Support for accurate DOM operations and complex interaction scenarios
-- 📊 **Performance Monitoring** - Built-in system resource monitoring for real-time task execution insights
-- 🔒 **Reliable & Secure** - Comprehensive error handling and exception recovery mechanisms
-- 🌐 **Multi-language Support** - Full Chinese language support with localized interaction experience
+- 🤖 **AI Agent & Visual Reasoning** - Complete complex browser operations through natural language and visual understanding, powered by GPT-4o multimodal capabilities
+- 🧠 **Chain-of-Thought Planning** - Advanced task planning and execution with reinforcement learning for optimal automation
+- 🎯 **Precise GUI Interaction** - Pixel-perfect DOM operations, XPath navigation, and complex interaction scenarios using computer vision
+- 📊 **Real-time Task Tracking** - WebSocket-based monitoring system with CPU, memory, and network metrics for execution insights
+- 🔒 **Privacy-First Design** - Local processing of sensitive data with comprehensive error handling and self-correction mechanisms
+- 🌐 **Cross-Platform & Multilingual** - Full i18n support with Chinese/English interfaces, works on Windows, macOS, and Linux
+- 🔌 **Extensible Architecture** - REST API, WebSocket endpoints, and plugin system for seamless integration
+- 🚀 **Cloud & Self-Hosted** - Deploy on your infrastructure or use our cloud solution for maximum flexibility
+- ⚡ **High Performance** - Parallel task execution with optimized resource management
+- 🎨 **Modern Developer Experience** - Beautiful UI/UX built with Next.js and Tailwind CSS, extensive API documentation
 
 ## 🚀 Getting Started
 
@@ -152,22 +185,46 @@ For more examples, please visit our [documentation](https://github.com/OperatorN
 
 ## 🔧 Technology Stack
 
-### Backend
-- FastAPI
-- WebSocket
-- Playwright
-- LangChain
-- PostgreSQL
-- MinIO
+### AI & Automation
+- LLM Support - Compatible with GPT-4o, Claude, and other language models
+- LangChain - Large Language Model (LLM) orchestration framework
+- Computer Vision - Pixel-level DOM interaction and visual analysis
+- Reinforcement Learning - Self-improving task execution strategies
+- Chain-of-Thought - Advanced planning and decision making
 
-### Frontend
-- Next.js 15 (App Router)
-- React 19
-- TypeScript
-- Tailwind CSS
-- Shadcn UI
-- Prisma
-- Turbo Repo
+### Backend Infrastructure
+- FastAPI - High-performance Python web framework for building scalable APIs
+- WebSocket - Real-time bidirectional communication for task monitoring
+- Playwright - Modern web testing and automation with superior stability
+- PostgreSQL - Advanced open-source database for task management
+- MinIO - S3-compatible object storage for artifact management
+- Redis - In-memory data structure store for caching and queuing
+- Docker - Containerization and deployment automation
+
+### Frontend Technologies
+- Next.js 15 (App Router) - React framework with server-side rendering
+- React 19 - Latest version with concurrent features and Suspense
+- TypeScript - Type-safe JavaScript development for reliability
+- Tailwind CSS - Utility-first CSS framework for modern UI
+- Shadcn UI - Modern and accessible component library
+- Prisma - Next-generation ORM for type-safe database access
+- Turbo Repo - High-performance monorepo build system
+- WebSocket - Real-time updates and task monitoring
+- Biome - Fast and reliable code formatter
+
+### DevOps & Quality
+- Docker Compose - Multi-container orchestration
+- GitHub Actions - CI/CD automation pipeline
+- Playwright - End-to-end testing framework
+- Prisma - Database schema management and migrations
+- Biome - Code quality and formatting tools
+- pnpm - Fast, disk space efficient package manager
+
+### Security & Privacy
+- Local Processing - Sensitive data handling
+- End-to-End Encryption - Secure communication
+- Role-Based Access - Fine-grained permissions
+- Audit Logging - Comprehensive activity tracking
 
 ## 📝 Documentation
 
@@ -199,9 +256,14 @@ Thanks to all the developers who have contributed to this project!
   <img src="https://api.star-history.com/svg?repos=OperatorNext/OperatorNext&type=Date" />
 </div>
 
-## 📮 Contact Us
+## 📮 Contact & Community
 
-- Submit Issues: [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues)
+Join our growing community:
+
+- [Discord](https://discord.gg/zafb9TzYYA) - Join our community for discussions, support, and updates
+- [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues) - Bug reports and feature requests
+- [GitHub Discussions](https://github.com/OperatorNext/OperatorNext/discussions) - Technical discussions and questions
 - Email: hi@operatornext.com
 - Telegram: [@HaiPro_2025](https://t.me/HaiPro_2025)
-- Company: CyberPoet LLC 
+
+Company: CyberPoet LLC 
