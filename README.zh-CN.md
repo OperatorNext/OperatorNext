@@ -205,6 +205,7 @@ docker-compose up -d
 加入我们不断成长的社区：
 
 - [Discord](https://discord.gg/zafb9TzYYA) - 加入我们的社区，参与讨论、获取支持和更新
+- [Slack](https://join.slack.com/t/operatornext/shared_invite/zt-2yzynnxiv-ywt7Z8UtykGAm6EUfpljQA) - 加入我们的 Slack 工作区进行团队协作
 - [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues) - 问题报告和功能请求
 - [GitHub Discussions](https://github.com/OperatorNext/OperatorNext/discussions) - 技术讨论和问题解答
 - 电子邮件：hi@operatornext.com

@@ -264,6 +264,7 @@ Thanks to all the developers who have contributed to this project!
 Join our growing community:
 
 - [Discord](https://discord.gg/zafb9TzYYA) - Join our community for discussions, support, and updates
+- [Slack](https://join.slack.com/t/operatornext/shared_invite/zt-2yzynnxiv-ywt7Z8UtykGAm6EUfpljQA) - Join our Slack workspace for team collaboration
 - [GitHub Issues](https://github.com/OperatorNext/OperatorNext/issues) - Bug reports and feature requests
 - [GitHub Discussions](https://github.com/OperatorNext/OperatorNext/discussions) - Technical discussions and questions
 - Email: hi@operatornext.com
