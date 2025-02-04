@@ -6,7 +6,10 @@ const pirschCode = process.env.NEXT_PUBLIC_PIRSCH_CODE as string;
 
 declare global {
 	interface Window {
-		pirsch?: (event: string, options?: { meta?: Record<string, unknown> }) => void;
+		pirsch?: (
+			event: string,
+			options?: { meta?: Record<string, unknown> },
+		) => void;
 	}
 }
 

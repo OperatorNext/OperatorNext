@@ -7,9 +7,9 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { DocsBody, DocsPage } from "fumadocs-ui/page";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { ImageProps } from "next/image";
 import { notFound } from "next/navigation";
 import { docsSource } from "../../../../docs-source";
-import type { ImageProps } from "next/image";
 
 export default async function DocumentationPage(props: {
 	params: Promise<{ path?: string[]; locale: string }>;

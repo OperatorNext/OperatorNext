@@ -6,7 +6,10 @@ const plausibleUrl = process.env.NEXT_PUBLIC_PLAUSIBLE_URL as string;
 
 declare global {
 	interface Window {
-		plausible: (event: string, options: { props?: Record<string, unknown> }) => void;
+		plausible: (
+			event: string,
+			options: { props?: Record<string, unknown> },
+		) => void;
 	}
 }
 

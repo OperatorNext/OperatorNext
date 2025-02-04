@@ -7,7 +7,10 @@ const umamiTrackingId = process.env.NEXT_PUBLIC_UMAMI_TRACKING_ID as string;
 declare global {
 	interface Window {
 		umami: {
-			track: (event: string, options: { props?: Record<string, unknown> }) => void;
+			track: (
+				event: string,
+				options: { props?: Record<string, unknown> },
+			) => void;
 		};
 	}
 }
