@@ -13,10 +13,16 @@ import Image, { type StaticImageData } from "next/image";
 import { type JSXElementConstructor, type ReactNode, useState } from "react";
 import heroImage from "../../../../public/images/hero.svg";
 
+type IconComponent = JSXElementConstructor<{
+	className?: string;
+	width?: string;
+	height?: string;
+}>;
+
 export const featureTabs: Array<{
 	id: string;
 	title: string;
-	icon: JSXElementConstructor<any>;
+	icon: IconComponent;
 	subtitle?: string;
 	description?: ReactNode;
 	image?: StaticImageData;
@@ -24,12 +30,12 @@ export const featureTabs: Array<{
 	stack?: {
 		title: string;
 		href: string;
-		icon: JSXElementConstructor<any>;
+		icon: IconComponent;
 	}[];
 	highlights?: {
 		title: string;
 		description: string;
-		icon: JSXElementConstructor<any>;
+		icon: IconComponent;
 		demoLink?: string;
 		docsLink?: string;
 	}[];
@@ -207,22 +213,20 @@ export function Features() {
 
 										{filteredStack?.length > 0 && (
 											<div className="mt-4 flex flex-wrap gap-6">
-												{filteredStack.map(
-													(tool, k) => (
-														<a
-															href={tool.href}
-															target="_blank"
-															key={`stack-tool-${k}`}
-															className="flex items-center gap-2"
-															rel="noreferrer"
-														>
-															<tool.icon className="size-6" />
-															<strong className="block text-sm">
-																{tool.title}
-															</strong>
-														</a>
-													),
-												)}
+												{filteredStack.map((tool) => (
+													<a
+														href={tool.href}
+														target="_blank"
+														key={`${tab.id}-${tool.title}`}
+														className="flex items-center gap-2"
+														rel="noreferrer"
+													>
+														<tool.icon className="size-6" />
+														<strong className="block text-sm">
+															{tool.title}
+														</strong>
+													</a>
+												))}
 											</div>
 										)}
 									</div>
@@ -232,7 +236,7 @@ export function Features() {
 												src={tab.image}
 												alt={tab.title}
 												className={cn(
-													" h-auto w-full max-w-xl",
+													"h-auto w-full max-w-xl",
 													{
 														"rounded-2xl border-4 border-secondary/10":
 															tab.imageBorder,
@@ -245,30 +249,26 @@ export function Features() {
 
 								{filteredHighlights.length > 0 && (
 									<div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-										{filteredHighlights.map(
-											(highlight, k) => (
-												<div
-													key={`highlight-${k}`}
-													className="flex flex-col items-stretch justify-between rounded-lg border p-4"
-												>
-													<div>
-														<highlight.icon
-															className="text-primary text-xl"
-															width="1em"
-															height="1em"
-														/>
-														<strong className="mt-2 block">
-															{highlight.title}
-														</strong>
-														<p className="mt-1 text-sm opacity-50">
-															{
-																highlight.description
-															}
-														</p>
-													</div>
+										{filteredHighlights.map((highlight) => (
+											<div
+												key={`${tab.id}-${highlight.title}`}
+												className="flex flex-col items-stretch justify-between rounded-lg border p-4"
+											>
+												<div>
+													<highlight.icon
+														className="text-primary text-xl"
+														width="1em"
+														height="1em"
+													/>
+													<strong className="mt-2 block">
+														{highlight.title}
+													</strong>
+													<p className="mt-1 text-sm opacity-50">
+														{highlight.description}
+													</p>
 												</div>
-											),
-										)}
+											</div>
+										))}
 									</div>
 								)}
 							</div>

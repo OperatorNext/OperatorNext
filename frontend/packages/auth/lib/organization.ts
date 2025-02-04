@@ -1,7 +1,7 @@
 import { db } from "@repo/database";
+import type { Purchase } from "@repo/database";
 import { logger } from "@repo/logs";
 import { setSubscriptionSeats } from "@repo/payments";
-import type { Purchase } from "@repo/database";
 
 export async function getOrganizationMembership(
 	userId: string,

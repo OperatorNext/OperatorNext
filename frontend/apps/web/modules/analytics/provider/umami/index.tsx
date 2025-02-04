@@ -4,6 +4,17 @@ import Script from "next/script";
 
 const umamiTrackingId = process.env.NEXT_PUBLIC_UMAMI_TRACKING_ID as string;
 
+declare global {
+	interface Window {
+		umami: {
+			track: (
+				event: string,
+				options: { props?: Record<string, unknown> },
+			) => void;
+		};
+	}
+}
+
 export function AnalyticsScript() {
 	return (
 		<Script
@@ -17,11 +28,11 @@ export function AnalyticsScript() {
 
 export function useAnalytics() {
 	const trackEvent = (event: string, data?: Record<string, unknown>) => {
-		if (typeof window === "undefined" || !(window as any).umami) {
+		if (typeof window === "undefined" || !window.umami) {
 			return;
 		}
 
-		(window as any).umami.track(event, {
+		window.umami.track(event, {
 			props: data,
 		});
 	};

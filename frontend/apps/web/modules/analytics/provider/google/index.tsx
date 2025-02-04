@@ -4,6 +4,13 @@ import Script from "next/script";
 
 const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID as string;
 
+declare global {
+	interface Window {
+		dataLayer: unknown[];
+		gtag: (...args: unknown[]) => void;
+	}
+}
+
 export function AnalyticsScript() {
 	return (
 		<Script
@@ -14,10 +21,10 @@ export function AnalyticsScript() {
 					return;
 				}
 
-				(window as any).dataLayer = (window as any).dataLayer || [];
+				window.dataLayer = window.dataLayer || [];
 
-				function gtag(...rest: any[]) {
-					(window as any).dataLayer.push(...rest);
+				function gtag(...args: unknown[]) {
+					window.dataLayer.push(...args);
 				}
 				gtag("js", new Date());
 				gtag("config", googleTagId);
@@ -28,11 +35,11 @@ export function AnalyticsScript() {
 
 export function useAnalytics() {
 	const trackEvent = (event: string, data?: Record<string, unknown>) => {
-		if (typeof window === "undefined" || !(window as any).gta) {
+		if (typeof window === "undefined" || !window.gtag) {
 			return;
 		}
 
-		(window as any).gta("event", event, data);
+		window.gtag("event", event, data);
 	};
 
 	return {

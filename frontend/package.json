@@ -7,6 +7,7 @@
 		"lint": "biome lint .",
 		"clean": "turbo clean",
 		"format": "biome format . --write",
+		"fix": "biome check . --write",
 		"e2e": "pnpm --filter web e2e",
 		"db:push": "pnpm --filter @repo/database push",
 		"db:generate": "pnpm --filter @repo/database generate",
@@ -21,7 +22,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/tsconfig": "workspace:*",
-		"@types/node": "^22.13.0",
+		"@types/node": "^22.13.1",
 		"dotenv-cli": "^8.0.0",
 		"turbo": "^2.4.0",
 		"typescript": "5.7.3"

@@ -11,7 +11,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/tsconfig": "workspace:*",
-		"@types/node": "^22.13.0"
+		"@types/node": "^22.13.1"
 	},
 	"main": "./index.ts",
 	"exports": {
