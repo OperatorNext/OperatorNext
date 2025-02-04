@@ -1,0 +1,31 @@
+[pr_agent]
+# 设置语言为中文
+language = "zh"
+
+# AI 配置
+model = "gpt-4o"  # 使用您指定的模型
+temperature = 0.2  # AI 响应的随机性 (0-1)
+
+# 代码审查设置
+[review]
+# 审查重点关注的问题类型
+review_comment_categories = [
+  "security",         # 安全问题
+  "best_practices",   # 最佳实践
+  "code_style",       # 代码风格
+  "bug_suspicious",   # 可能的bug
+  "performance",      # 性能问题
+  "complexity",       # 复杂度问题
+]
+
+# 描述生成设置
+[describe]
+# 是否生成标签
+add_labels = true
+# 是否生成代码变更概述
+add_walkthrough = true
+
+# 代码改进建议设置
+[improve]
+# 是否包含代码示例
+include_code_examples = true 
