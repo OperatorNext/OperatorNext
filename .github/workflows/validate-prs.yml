@@ -23,6 +23,7 @@ jobs:
         uses: biomejs/setup-biome@v2
       - name: Run Biome
         run: biome ci .
+
   e2e:
     name: Run e2e tests
     timeout-minutes: 60
@@ -32,14 +33,32 @@ jobs:
         working-directory: frontend
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+          
       - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+          
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pnpm-store
+            **/node_modules
+            frontend/.next/cache
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      
       - name: Install dependencies
         run: pnpm install && pnpm -filter database push && pnpm --filter database generate
+        
       - name: Run Playwright tests
         run: pnpm --filter web e2e:ci
+        
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

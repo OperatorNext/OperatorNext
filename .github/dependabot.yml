@@ -11,8 +11,8 @@ updates:
       development-dependencies:
         dependency-type: "development"
 
-  - package-ecosystem: "pip"
-    directory: "/backend"
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     open-pull-requests-limit: 2
