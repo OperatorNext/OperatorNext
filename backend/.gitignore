@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 虚拟环境
+.venv/
+venv/
+ENV/
+
+# 开发环境
+.env
+*.log
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# 依赖管理
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 构建和分发
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# 数据和媒体文件
+data/
+media/
+*.db
+*.sqlite3
+
+# 日志和临时文件
+logs/
+temp/
+tmp/
+
+# 本地开发配置
+.env.local
+.env.*.local
+
+# UV 特定文件
+.uv/
+uv.lock 

@@ -9,8 +9,8 @@ from datetime import datetime
 from typing import Dict, Optional, List
 
 from fastapi import WebSocket
-from app.models.agent import create_agent
-from app.schemas.browser_task import BrowserTask, WSMessage
+from models.agent import create_agent
+from schemas.browser_task import BrowserTask, WSMessage
 
 from .metrics import SystemMetricsCollector
 from .error_handler import ErrorHandler

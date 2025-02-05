@@ -2,7 +2,7 @@ from datetime import datetime
 import traceback
 from typing import Any, Dict, Callable
 import asyncio
-from app.schemas.browser_task import WSMessage, StepMessage, ResultMessage, Action
+from schemas.browser_task import WSMessage, StepMessage, ResultMessage, Action
 
 class CallbackManager:
     """回调管理器"""

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, WebSocket, HTTPException, Request
-from app.schemas.browser_task import BrowserTaskCreate, BrowserTask
-from app.services.browser import BrowserService
+from schemas.browser_task import BrowserTaskCreate, BrowserTask
+from services.browser import BrowserService
 import logging
 import sys
 

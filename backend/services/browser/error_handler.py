@@ -1,7 +1,7 @@
 import traceback
 from datetime import datetime
 from typing import Optional
-from app.schemas.browser_task import ErrorMessage
+from schemas.browser_task import ErrorMessage
 
 class ErrorHandler:
     """错误处理器"""

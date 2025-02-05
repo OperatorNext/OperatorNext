@@ -1,7 +1,7 @@
 from browser_use import Agent
 from browser_use.browser.browser import Browser, BrowserConfig
-from app.core.prompts import ChineseSystemPrompt
-from app.models.llm import create_llm_model
+from core.prompts import ChineseSystemPrompt
+from models.llm import create_llm_model
 
 def create_agent(
     task: str,
