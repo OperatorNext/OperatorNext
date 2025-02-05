@@ -121,8 +121,8 @@ importers:
         specifier: ^1.4.1
         version: 1.4.1(next@15.1.6(@opentelemetry/api@1.9.0)(@playwright/test@1.50.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       ai:
-        specifier: ^4.1.17
-        version: 4.1.17(react@19.0.0)(zod@3.24.1)
+        specifier: ^4.1.18
+        version: 4.1.18(react@19.0.0)(zod@3.24.1)
       better-auth:
         specifier: 1.1.15
         version: 1.1.15
@@ -332,8 +332,8 @@ importers:
         specifier: ^1.1.8
         version: 1.1.8(react@19.0.0)(zod@3.24.1)
       ai:
-        specifier: ^4.1.17
-        version: 4.1.17(react@19.0.0)(zod@3.24.1)
+        specifier: ^4.1.18
+        version: 4.1.18(react@19.0.0)(zod@3.24.1)
       openai:
         specifier: ^4.82.0
         version: 4.82.0(encoding@0.1.13)(zod@3.24.1)
@@ -384,8 +384,8 @@ importers:
         specifier: workspace:*
         version: link:../utils
       '@scalar/hono-api-reference':
-        specifier: ^0.5.170
-        version: 0.5.170(hono@4.6.20)
+        specifier: ^0.5.171
+        version: 0.5.171(hono@4.6.20)
       '@sindresorhus/slugify':
         specifier: ^2.2.1
         version: 2.2.1
@@ -2761,18 +2761,18 @@ packages:
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
 
-  '@scalar/hono-api-reference@0.5.170':
-    resolution: {integrity: sha512-WZsBHZutARsszArsn2jC8aPM1KrMtkyIJzt/Dhigr3KPaDMTVBZEmO/NILrYAMnLYkboAs7DedtSHt59D41dew==}
+  '@scalar/hono-api-reference@0.5.171':
+    resolution: {integrity: sha512-xa1x8IENvc6SiD5s28Ltx2s6kVL0BiPbnAV2lB3EGgn5J/S/136q9PGS3X8hQZhNRFYXU7bFhkGpkWLb+E3sTw==}
     engines: {node: '>=18'}
     peerDependencies:
       hono: ^4.0.0
 
-  '@scalar/openapi-types@0.1.6':
-    resolution: {integrity: sha512-V+KnESyVJqorJzEN0QFlu3tAImCHjnvPov6QcQvjfY7s0+CjrI3rRO3oVIRlXURTQrQGrnhxvK0SkXGAZ+dxvw==}
+  '@scalar/openapi-types@0.1.7':
+    resolution: {integrity: sha512-oOTG3JQifg55U3DhKB7WdNIxFnJzbPJe7rqdyWdio977l8IkxQTVmObftJhdNIMvhV2K+1f/bDoMQGu6yTaD0A==}
     engines: {node: '>=18'}
 
-  '@scalar/types@0.0.29':
-    resolution: {integrity: sha512-Z5tnRVtKHV/Gx4hCPeyFsxM1Gx92KUqpZ/HhM4KexPh5StKJo6MSLSTeFXqdVM8dbsnfw+xFBoLF9yE0eEHK3Q==}
+  '@scalar/types@0.0.30':
+    resolution: {integrity: sha512-rhgwovQb5f7PXuUB5bLUElpo90fdsiwcOgBXVWZ6n6dnFSKovNJ7GPXQimsZioMzTF6TdwfP94UpZVdZAK4aTw==}
     engines: {node: '>=18'}
 
   '@selderee/plugin-htmlparser2@0.11.0':
@@ -3296,8 +3296,8 @@ packages:
     resolution: {integrity: sha512-kja8j7PjmncONqaTsB8fQ+wE2mSU2DJ9D4XKoJ5PFWIdRMa6SLSN1ff4mOr4jCbfRSsxR4keIiySJU0N9T5hIQ==}
     engines: {node: '>= 8.0.0'}
 
-  ai@4.1.17:
-    resolution: {integrity: sha512-5SW15tXDuxE/wlEOjRKxLxTOUIGD4C9bIee+FCFvXHTTAZhHiQjViC2s7RtMUW+hbFtGya302jUHY1Pe8A/YuQ==}
+  ai@4.1.18:
+    resolution: {integrity: sha512-Ua0rfJ6PQqW3bC+pXcaznAjZyHto5qm/AFoAF7ifvPvkbOZEbENP/KF3/2gF7M+oklTo9yUSLAoShghMvKSh2A==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -8059,16 +8059,16 @@ snapshots:
     dependencies:
       react: 19.0.0
 
-  '@scalar/hono-api-reference@0.5.170(hono@4.6.20)':
+  '@scalar/hono-api-reference@0.5.171(hono@4.6.20)':
     dependencies:
-      '@scalar/types': 0.0.29
+      '@scalar/types': 0.0.30
       hono: 4.6.20
 
-  '@scalar/openapi-types@0.1.6': {}
+  '@scalar/openapi-types@0.1.7': {}
 
-  '@scalar/types@0.0.29':
+  '@scalar/types@0.0.30':
     dependencies:
-      '@scalar/openapi-types': 0.1.6
+      '@scalar/openapi-types': 0.1.7
       '@unhead/schema': 1.11.18
 
   '@selderee/plugin-htmlparser2@0.11.0':
@@ -8697,7 +8697,7 @@ snapshots:
     dependencies:
       humanize-ms: 1.2.1
 
-  ai@4.1.17(react@19.0.0)(zod@3.24.1):
+  ai@4.1.18(react@19.0.0)(zod@3.24.1):
     dependencies:
       '@ai-sdk/provider': 1.0.7
       '@ai-sdk/provider-utils': 2.1.6(zod@3.24.1)

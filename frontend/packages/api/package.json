@@ -10,7 +10,7 @@
 		"@repo/payments": "workspace:*",
 		"@repo/storage": "workspace:*",
 		"@repo/utils": "workspace:*",
-		"@scalar/hono-api-reference": "^0.5.170",
+		"@scalar/hono-api-reference": "^0.5.171",
 		"@sindresorhus/slugify": "^2.2.1",
 		"hono": "^4.6.20",
 		"hono-openapi": "^0.4.4",
