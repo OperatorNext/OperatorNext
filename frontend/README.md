@@ -47,11 +47,13 @@ cp .env.local.example .env.local
 3. Initialize database and generate types:
 ```bash
 # Push database schema
-pnpm db:push
+sudo pnpm db:push
 
 # Generate Prisma client and types
-pnpm db:generate
+sudo pnpm db:generate
 ```
+
+> Note: `sudo` might be required for database operations depending on your system configuration.
 
 ### Development
 
@@ -70,6 +72,66 @@ This will start the following services:
 | MinIO | http://localhost:9002 | S3-compatible object storage |
 | MinIO Console | http://localhost:9003 | Storage management UI |
 | Maildev | http://localhost:8026 | Email testing interface |
+
+### Local Development Best Practices
+
+#### Email Service Configuration
+The project supports multiple email providers that can be configured via environment variables:
+
+```env
+# Available providers: "nodemailer" | "resend" | "plunk" | "postmark" | "console" | "custom"
+MAIL_PROVIDER="nodemailer"
+```
+
+For local development:
+- Use `nodemailer` provider with Maildev
+- Configure in `.env.local`:
+  ```env
+  MAIL_PROVIDER="nodemailer"
+  MAIL_HOST="localhost"
+  MAIL_PORT="1026"
+  ```
+- Access Maildev UI at http://localhost:8026 to view sent emails
+
+For production:
+- Use cloud email services like Resend or Postmark
+- Configure the appropriate provider and API keys
+- Example with Resend:
+  ```env
+  MAIL_PROVIDER="resend"
+  RESEND_API_KEY="your_api_key"
+  ```
+
+#### Storage Service Configuration
+The project uses S3-compatible storage that can be configured for both local development and production:
+
+For local development:
+- Uses MinIO as S3-compatible storage
+- Configure in `.env.local`:
+  ```env
+  S3_ACCESS_KEY_ID="operatornext_storage_admin"
+  S3_SECRET_ACCESS_KEY="your_secure_password"
+  S3_ENDPOINT="http://localhost:9002"
+  NEXT_PUBLIC_AVATARS_BUCKET_NAME="avatars"
+  ```
+- Access MinIO Console at http://localhost:9003 for storage management
+
+For production:
+- Use cloud storage services (e.g., Supabase Storage, AWS S3)
+- Configure the appropriate credentials and endpoint
+- Example with Supabase Storage:
+  ```env
+  S3_ACCESS_KEY_ID="your_cloud_storage_key"
+  S3_SECRET_ACCESS_KEY="your_cloud_storage_secret"
+  S3_ENDPOINT="https://your-project.supabase.co/storage/v1/s3"
+  ```
+
+The storage service is used for:
+- User avatar uploads
+- File attachments
+- Other static assets
+
+Note: When using Docker Compose, the services are automatically configured with the correct environment variables and network settings.
 
 ## 📦 Project Structure
 

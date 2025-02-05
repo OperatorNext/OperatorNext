@@ -120,11 +120,13 @@ pnpm install
 
 ```bash
 # Push database schema
-pnpm db:push
+sudo pnpm db:push
 
 # Generate Prisma client and types
-pnpm db:generate
+sudo pnpm db:generate
 ```
+
+> Note: `sudo` might be required for database operations depending on your system configuration.
 
 ### Start Services
 

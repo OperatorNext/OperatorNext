@@ -120,11 +120,13 @@ pnpm install
 
 ```bash
 # 推送数据库架构
-pnpm db:push
+sudo pnpm db:push
 
 # 生成 Prisma 客户端和类型
-pnpm db:generate
+sudo pnpm db:generate
 ```
+
+> 注意：根据您的系统配置，数据库操作可能需要 `sudo` 权限。
 
 ### 启动服务
 

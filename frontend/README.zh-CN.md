@@ -47,11 +47,13 @@ cp .env.local.example .env.local
 3. 初始化数据库并生成类型：
 ```bash
 # 推送数据库架构
-pnpm db:push
+sudo pnpm db:push
 
 # 生成 Prisma 客户端和类型
-pnpm db:generate
+sudo pnpm db:generate
 ```
+
+> 注意：根据您的系统配置，数据库操作可能需要 `sudo` 权限。
 
 ### 开发环境
 
@@ -70,6 +72,66 @@ pnpm dev
 | MinIO | http://localhost:9002 | S3 兼容对象存储 |
 | MinIO 控制台 | http://localhost:9003 | 存储管理界面 |
 | Maildev | http://localhost:8026 | 邮件测试界面 |
+
+### 本地开发最佳实践
+
+#### 邮件服务配置
+项目支持多个邮件提供商，可以通过环境变量进行配置：
+
+```env
+# 可选值: "nodemailer" | "resend" | "plunk" | "postmark" | "console" | "custom"
+MAIL_PROVIDER="nodemailer"
+```
+
+本地开发环境：
+- 使用 `nodemailer` 提供商配合 Maildev
+- 在 `.env.local` 中配置：
+  ```env
+  MAIL_PROVIDER="nodemailer"
+  MAIL_HOST="localhost"
+  MAIL_PORT="1026"
+  ```
+- 访问 http://localhost:8026 查看发送的邮件
+
+生产环境：
+- 使用云邮件服务，如 Resend 或 Postmark
+- 配置相应的提供商和 API 密钥
+- Resend 配置示例：
+  ```env
+  MAIL_PROVIDER="resend"
+  RESEND_API_KEY="your_api_key"
+  ```
+
+#### 存储服务配置
+项目使用 S3 兼容的存储服务，可以针对本地开发和生产环境进行配置：
+
+本地开发环境：
+- 使用 MinIO 作为 S3 兼容存储
+- 在 `.env.local` 中配置：
+  ```env
+  S3_ACCESS_KEY_ID="operatornext_storage_admin"
+  S3_SECRET_ACCESS_KEY="your_secure_password"
+  S3_ENDPOINT="http://localhost:9002"
+  NEXT_PUBLIC_AVATARS_BUCKET_NAME="avatars"
+  ```
+- 访问 http://localhost:9003 管理存储服务
+
+生产环境：
+- 使用云存储服务（如 Supabase Storage、AWS S3）
+- 配置相应的凭据和端点
+- Supabase Storage 配置示例：
+  ```env
+  S3_ACCESS_KEY_ID="your_cloud_storage_key"
+  S3_SECRET_ACCESS_KEY="your_cloud_storage_secret"
+  S3_ENDPOINT="https://your-project.supabase.co/storage/v1/s3"
+  ```
+
+存储服务用于：
+- 用户头像上传
+- 文件附件
+- 其他静态资源
+
+注意：使用 Docker Compose 时，服务会自动配置正确的环境变量和网络设置。
 
 ## 📦 项目结构
 
