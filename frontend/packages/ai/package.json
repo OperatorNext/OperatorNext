@@ -2,8 +2,8 @@
 	"dependencies": {
 		"@ai-sdk/anthropic": "^1.1.6",
 		"@ai-sdk/openai": "^1.1.9",
-		"@ai-sdk/react": "^1.1.8",
-		"ai": "^4.1.17",
+		"@ai-sdk/react": "^1.1.9",
+		"ai": "^4.1.19",
 		"openai": "^4.82.0"
 	},
 	"devDependencies": {
