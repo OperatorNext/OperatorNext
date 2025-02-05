@@ -60,6 +60,53 @@ services:
       minio:
         condition: service_healthy
 
+  # Chrome 浏览器服务
+  chrome:
+    image: browserless/chrome:latest
+    platform: linux/arm64
+    container_name: operatornext-chrome
+    environment:
+      # 基础配置
+      - MAX_CONCURRENT_SESSIONS=10
+      - CONNECTION_TIMEOUT=300000
+      - MAX_QUEUE_LENGTH=10
+      - WORKSPACE_DIR=/tmp/workspace
+      
+      # 调试配置
+      - DEBUG=browserless*
+      
+      # 安全配置
+      - TOKEN=browser-token-2024
+      - ENABLE_CORS=true
+      - CORS_ALLOW_ORIGINS=http://localhost:8000
+      - ENABLE_API_GET=true
+      - HOST=0.0.0.0
+      - SWAGGER_SERVER=http://localhost:13000
+      
+      # 浏览器配置
+      - DEFAULT_HEADLESS=false
+      - DEFAULT_IGNORE_HTTPS_ERRORS=true
+      - DEFAULT_USER_DATA_DIR=/tmp/browserless-data-dir
+      - DOWNLOAD_DIR=/tmp/downloads
+
+    shm_size: '2gb'
+    ports:
+      - "13000:3000"  # browserless HTTP 和 WebSocket 端口
+      - "19222:9222"  # Chrome DevTools 端口
+    networks:
+      - browser_net
+    volumes:
+      - browserless-data:/tmp/workspace
+      - /dev/shm:/dev/shm
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    depends_on:
+      - web
+
   # 可选: pgAdmin 管理工具
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -107,8 +154,22 @@ services:
       postgres:
         condition: service_healthy
 
+networks:
+  default:
+    name: operatornext-network
+  browser_net:
+    name: operatornext-browser-net
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
+
 volumes:
   postgres_data:
     name: ${POSTGRES_VOLUME_NAME}
   minio_data:
     name: ${MINIO_VOLUME_NAME}
+  browserless-data:
+    name: operatornext-browserless-data
+    driver: local
