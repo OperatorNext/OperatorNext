@@ -8,8 +8,17 @@ export const metadata: Metadata = {
 		default: "OperatorNext - LLM-Powered Browser Automation Agent",
 		template: "%s | OperatorNext",
 	},
-	description: "Open-Source Alternative to OpenAI Operator. AI agent platform that understands and executes complex browser tasks through natural language processing and visual reasoning.",
-	keywords: ["browser automation", "AI agent", "LLM", "web automation", "testing", "RPA", "visual reasoning"],
+	description:
+		"Open-Source Alternative to OpenAI Operator. AI agent platform that understands and executes complex browser tasks through natural language processing and visual reasoning.",
+	keywords: [
+		"browser automation",
+		"AI agent",
+		"LLM",
+		"web automation",
+		"testing",
+		"RPA",
+		"visual reasoning",
+	],
 	authors: [{ name: "CyberPoet LLC" }],
 	creator: "CyberPoet LLC",
 	publisher: "CyberPoet LLC",
@@ -28,7 +37,8 @@ export const metadata: Metadata = {
 		url: "https://operatornext.com",
 		siteName: "OperatorNext",
 		title: "OperatorNext - LLM-Powered Browser Automation Agent",
-		description: "Open-Source Alternative to OpenAI Operator. AI agent platform that understands and executes complex browser tasks through natural language processing and visual reasoning.",
+		description:
+			"Open-Source Alternative to OpenAI Operator. AI agent platform that understands and executes complex browser tasks through natural language processing and visual reasoning.",
 		images: [
 			{
 				url: "https://operatornext.com/images/logo.png",
@@ -41,7 +51,8 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title: "OperatorNext - LLM-Powered Browser Automation Agent",
-		description: "Open-Source Alternative to OpenAI Operator. AI agent platform that understands and executes complex browser tasks.",
+		description:
+			"Open-Source Alternative to OpenAI Operator. AI agent platform that understands and executes complex browser tasks.",
 		images: ["https://operatornext.com/images/logo.png"],
 	},
 	viewport: {
