@@ -124,8 +124,8 @@ importers:
         specifier: ^4.1.19
         version: 4.1.19(react@19.0.0)(zod@3.24.1)
       better-auth:
-        specifier: 1.1.15
-        version: 1.1.15
+        specifier: 1.1.16
+        version: 1.1.16
       boring-avatars:
         specifier: ^1.11.2
         version: 1.11.2
@@ -454,8 +454,8 @@ importers:
         specifier: workspace:*
         version: link:../utils
       better-auth:
-        specifier: 1.1.15
-        version: 1.1.15
+        specifier: 1.1.16
+        version: 1.1.16
       cookie:
         specifier: ^1.0.2
         version: 1.0.2
@@ -1748,8 +1748,8 @@ packages:
     resolution: {integrity: sha512-xcY1/lDrY7CpIF98WKiL1ElsfoVhddP7FT0fw7ssOzrFqQsr44HgolKrQZxd9SywsCPn12OTOUieqDIokI3mFg==}
     engines: {node: '>=20'}
 
-  '@levischuck/tiny-cbor@0.2.2':
-    resolution: {integrity: sha512-f5CnPw997Y2GQ8FAvtuVVC19FX8mwNNC+1XJcIi16n/LTJifKO6QBgGLgN3YEmqtGMk17SKSuoWES3imJVxAVw==}
+  '@levischuck/tiny-cbor@0.2.8':
+    resolution: {integrity: sha512-Es+ajyTgqHREY9Fch5xPnZIDiTqgZc3dH3XU1/YWn8UsaOD8G8zhyhDib/UYgx31manKa7ZszKaLtcHKcGNchA==}
 
   '@mdx-js/esbuild@3.0.1':
     resolution: {integrity: sha512-+KZbCKcRjFtRD6qzD+c70Vq/VPVt5LHFsOshNcsdcONkaLTCSjmM7/uj71i3BcP+170f+P4DwVEMtqR/k0t5aw==}
@@ -3414,8 +3414,8 @@ packages:
     resolution: {integrity: sha512-lGe34o6EHj9y3Kts9R4ZYs/Gr+6N7MCaMlIFA3F1R2O5/m7K06AxfSeO5530PEERE6/WyEg3lsuyw4GHlPZHog==}
     engines: {node: ^4.5.0 || >= 5.9}
 
-  better-auth@1.1.15:
-    resolution: {integrity: sha512-9yCQNPSQG+/1fZhOzktaMgSAfM9Da5IIsAb7pUMVlr/mKvC84TBK6l7xp3m6sKIySNPtM7WSX9j5s8MNPlOscA==}
+  better-auth@1.1.16:
+    resolution: {integrity: sha512-Xc5pxafKZw4QVU8WYfkV2z4Hd8KCXXbphrgOpe2gA/EfanysLBhE1G/F7cEi5e0bW2pGR+vw6gf0ARHA7VFihg==}
 
   better-call@0.3.3:
     resolution: {integrity: sha512-N4lDVm0NGmFfDJ0XMQ4O83Zm/3dPlvIQdxvwvgSLSkjFX5PM4GUYSVAuxNzXN27QZMHDkrJTWUqxBrm4tPC3eA==}
@@ -7131,7 +7131,7 @@ snapshots:
 
   '@lemonsqueezy/lemonsqueezy.js@4.0.0': {}
 
-  '@levischuck/tiny-cbor@0.2.2': {}
+  '@levischuck/tiny-cbor@0.2.8': {}
 
   '@mdx-js/esbuild@3.0.1(acorn@8.14.0)(esbuild@0.21.5)':
     dependencies:
@@ -8192,7 +8192,7 @@ snapshots:
   '@simplewebauthn/server@13.1.1':
     dependencies:
       '@hexagon/base64': 1.1.28
-      '@levischuck/tiny-cbor': 0.2.2
+      '@levischuck/tiny-cbor': 0.2.8
       '@peculiar/asn1-android': 2.3.15
       '@peculiar/asn1-ecc': 2.3.15
       '@peculiar/asn1-rsa': 2.3.15
@@ -8846,7 +8846,7 @@ snapshots:
 
   base64id@2.0.0: {}
 
-  better-auth@1.1.15:
+  better-auth@1.1.16:
     dependencies:
       '@better-auth/utils': 0.2.3
       '@better-fetch/fetch': 1.1.12
