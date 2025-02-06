@@ -2,9 +2,9 @@
 	"dependencies": {
 		"@ai-sdk/anthropic": "^1.1.6",
 		"@ai-sdk/openai": "^1.1.9",
-		"@ai-sdk/react": "^1.1.9",
-		"ai": "^4.1.19",
-		"openai": "^4.82.0"
+		"@ai-sdk/react": "^1.1.10",
+		"ai": "^4.1.21",
+		"openai": "^4.83.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
