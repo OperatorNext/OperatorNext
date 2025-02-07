@@ -243,17 +243,17 @@
 			"subject": "Reset your password"
 		},
 		"magicLink": {
-			"body": "Hey,\nyou requested a login email from supastarter.\n\nClick the link below to login.",
+			"body": "Hey,\nyou requested a login email from OperatorNext.\n\nClick the link below to login.",
 			"login": "Login",
-			"subject": "Login to supastarter"
+			"subject": "Login to OperatorNext"
 		},
 		"newUser": {
-			"body": "Hey,\nthanks for signing up for supastarter.\n\nTo start using our app, please confirm your email address by clicking the link below.",
+			"body": "Hey,\nthanks for signing up for OperatorNext.\n\nTo start using our app, please confirm your email address by clicking the link below.",
 			"confirmEmail": "Confirm email",
 			"subject": "Confirm your email"
 		},
 		"newsletterSignup": {
-			"body": "Thank you for signing up for the supastarter newsletter. We will keep you updated with the latest news and updates.",
+			"body": "Thank you for signing up for the OperatorNext newsletter. We will keep you updated with the latest news and updates.",
 			"subject": "Welcome to our newsletter"
 		},
 		"organizationInvitation": {
@@ -275,7 +275,7 @@
 			}
 		},
 		"submit": "Subscribe",
-		"subtitle": "Be among the first to get access to supastarter.nextjs.",
+		"subtitle": "Be among the first to get access to OperatorNext.",
 		"title": "Get early access"
 	},
 	"onboarding": {

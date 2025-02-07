@@ -40,10 +40,10 @@ export function Newsletter() {
 				<div className="mb-8 text-center">
 					<KeyIcon className="mx-auto mb-3 size-8 text-primary" />
 					<h1 className="font-bold text-3xl lg:text-4xl">
-						{t("newsletter.title")}
+						加入我们的开源社区
 					</h1>
 					<p className="mt-3 text-lg opacity-70">
-						{t("newsletter.subtitle")}
+						订阅我们的通讯，获取最新的功能更新、技术文章和社区动态
 					</p>
 				</div>
 

@@ -41,3 +41,48 @@ div[role="tablist"].bg-secondary {
 input[cmdk-input] {
 	@apply border-none focus-visible:ring-0;
 }
+
+@layer utilities {
+	.animate-gradient {
+		background-size: 200% auto;
+		animation: gradient 8s linear infinite;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.hero-glow {
+	position: absolute;
+	width: 150%;
+	height: 150%;
+	top: -25%;
+	left: -25%;
+	pointer-events: none;
+	background: radial-gradient(
+		circle at center,
+		rgba(var(--primary) / 0.15) 0%,
+		rgba(var(--primary) / 0.05) 25%,
+		transparent 70%
+	);
+	filter: blur(40px);
+	animation: glow 10s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+	0% {
+		transform: translate(-2%, -2%) scale(0.95);
+	}
+	100% {
+		transform: translate(2%, 2%) scale(1.05);
+	}
+}

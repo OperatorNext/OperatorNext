@@ -1,7 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { PropsWithChildren } from "react";
 import "./globals.css";
 import "cropperjs/dist/cropper.css";
+
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1,
+	maximumScale: 1,
+};
 
 export const metadata: Metadata = {
 	title: {
@@ -54,11 +60,6 @@ export const metadata: Metadata = {
 		description:
 			"Open-Source Alternative to OpenAI Operator. AI agent platform that understands and executes complex browser tasks.",
 		images: ["https://operatornext.com/images/logo.png"],
-	},
-	viewport: {
-		width: "device-width",
-		initialScale: 1,
-		maximumScale: 1,
 	},
 	icons: {
 		icon: "/images/logo.png",

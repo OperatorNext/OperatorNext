@@ -9,7 +9,7 @@ export function Footer() {
 			)}
 		>
 			<span>
-				© {new Date().getFullYear()} supastarter. All rights reserved.
+				© {new Date().getFullYear()} OperatorNext. All rights reserved.
 			</span>
 			<span className="opacity-50"> | </span>
 			<LocaleLink href="/legal/privacy-policy">Privacy policy</LocaleLink>

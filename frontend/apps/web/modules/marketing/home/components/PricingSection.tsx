@@ -10,10 +10,10 @@ export function PricingSection() {
 			<div className="container max-w-5xl">
 				<div className="mb-6 lg:text-center">
 					<h1 className="font-bold text-4xl lg:text-5xl">
-						{t("pricing.title")}
+						灵活的部署方案
 					</h1>
 					<p className="mt-3 text-lg opacity-50">
-						{t("pricing.description")}
+						选择最适合您需求的部署方式，从开源社区版到企业级支持
 					</p>
 				</div>
 

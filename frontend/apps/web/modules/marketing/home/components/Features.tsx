@@ -2,13 +2,7 @@
 
 import { MobileIcon } from "@radix-ui/react-icons";
 import { cn } from "@ui/lib";
-import {
-	CloudIcon,
-	ComputerIcon,
-	PaperclipIcon,
-	StarIcon,
-	WandIcon,
-} from "lucide-react";
+import { CloudIcon, ComputerIcon, PaperclipIcon, WandIcon } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
 import { type JSXElementConstructor, type ReactNode, useState } from "react";
 import heroImage from "../../../../public/images/hero.svg";
@@ -41,93 +35,88 @@ export const featureTabs: Array<{
 	}[];
 }> = [
 	{
-		id: "feature1",
-		title: "Feature 1",
-		icon: StarIcon,
-		subtitle: "Do more with our amazing SaaS.",
+		id: "ai-agent",
+		title: "AI 代理",
+		icon: WandIcon,
+		subtitle: "强大的 AI 代理与视觉推理",
 		description:
-			"This is a brilliant feature. And below you can see some reasons why. This is basically just a dummy text.",
+			"通过自然语言和视觉理解完成复杂的浏览器操作，由 GPT-4V 多模态能力驱动",
 		stack: [],
 		image: heroImage,
 		imageBorder: false,
 		highlights: [
 			{
-				title: "Benefit 1",
+				title: "自然语言控制",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+					"使用自然语言描述任务，AI 自动完成复杂的浏览器操作",
 				icon: WandIcon,
 			},
 			{
-				title: "Benefit 2",
+				title: "视觉理解",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+					"基于计算机视觉的像素级 DOM 操作、XPath 导航和复杂交互场景",
 				icon: ComputerIcon,
 			},
 			{
-				title: "Benefit 3",
+				title: "多模态支持",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+					"支持 GPT-4V、Claude 等多种大语言模型，实现最优自动化",
 				icon: MobileIcon,
 			},
 		],
 	},
 	{
-		id: "feature2",
-		title: "Feature 2",
+		id: "automation",
+		title: "自动化",
 		icon: CloudIcon,
-		subtitle: "Your SaaS can also do this.",
-		description: "Another dummy text for another feature.",
+		subtitle: "端到端的浏览器自动化解决方案",
+		description: "完美适用于网页抓取、UI 测试、RPA 等多种自动化场景",
 		stack: [],
 		image: heroImage,
 		imageBorder: false,
 		highlights: [
 			{
-				title: "Benefit 1",
-				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+				title: "网页抓取",
+				description: "像素级精确的自动数据采集，具有自我纠正能力",
 				icon: WandIcon,
 			},
 			{
-				title: "Benefit 2",
-				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+				title: "UI 测试",
+				description: "现代化的 Selenium 替代方案，用于 UI/UX 测试",
 				icon: ComputerIcon,
 			},
 			{
-				title: "Benefit 3",
+				title: "RPA 自动化",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+					"基于链式思考的复杂任务规划，支持企业级工作流自动化",
 				icon: MobileIcon,
 			},
 		],
 	},
 	{
-		id: "feature3",
-		title: "Feature 3",
+		id: "deployment",
+		title: "部署方案",
 		icon: PaperclipIcon,
-		subtitle: "We even got a third one.",
-		description:
-			"Of course your SaaS will have more features than this, but this is just a dummy text.",
+		subtitle: "灵活的部署选项与隐私保护",
+		description: "支持自托管部署和云服务，确保数据隐私和安全",
 		stack: [],
 		image: heroImage,
 		imageBorder: false,
 		highlights: [
 			{
-				title: "Benefit 1",
-				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+				title: "自托管部署",
+				description: "完全控制您的数据和基础设施，支持本地部署",
 				icon: WandIcon,
 			},
 			{
-				title: "Benefit 2",
-				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+				title: "云服务",
+				description: "使用我们的云解决方案，快速启动并扩展",
 				icon: ComputerIcon,
 			},
 			{
-				title: "Benefit 3",
+				title: "隐私优先",
 				description:
-					"This is an awesome benefit. And below you can see some reasons why. This is basically just a dummy text.",
+					"敏感数据本地处理，具备全面的错误处理和自我纠正机制",
 				icon: MobileIcon,
 			},
 		],
@@ -141,12 +130,11 @@ export function Features() {
 			<div className="container max-w-5xl">
 				<div className="mx-auto mb-6 lg:mb-0 lg:max-w-5xl lg:text-center">
 					<h2 className="font-bold text-4xl lg:text-5xl">
-						Features your clients will love
+						强大的自动化特性
 					</h2>
 					<p className="mt-6 text-balance text-lg opacity-50">
-						In this section you can showcase all the features of
-						your SaaS provides and how they can benefit your
-						clients.
+						探索 OperatorNext 提供的核心功能，了解如何通过 AI
+						实现智能化的浏览器自动化
 					</p>
 				</div>
 

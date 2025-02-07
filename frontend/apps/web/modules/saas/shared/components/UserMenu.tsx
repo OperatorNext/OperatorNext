@@ -158,7 +158,7 @@ export function UserMenu({
 
 				<DropdownMenuItem asChild>
 					<a
-						href="https://docs.supastarter.dev"
+						href="https://docs.operatornext.com"
 						target="_blank"
 						rel="noopener noreferrer"
 					>

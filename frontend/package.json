@@ -1,5 +1,5 @@
 {
-	"name": "supastarter-nextjs",
+	"name": "operatornext",
 	"private": true,
 	"scripts": {
 		"build": "dotenv -c -- turbo build",
