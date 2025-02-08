@@ -15,10 +15,12 @@
 	"main": "./index.ts",
 	"name": "@repo/database",
 	"scripts": {
-		"generate": "prisma generate",
-		"push": "dotenv -c -e ../../.env -- prisma db push --skip-generate",
-		"migrate": "dotenv -c -e ../../.env -- prisma migrate dev",
-		"studio": "dotenv -c -e ../../.env -- prisma studio",
+		"generate": "prisma generate --schema ./prisma/schema",
+		"push": "dotenv -c -e ../../.env -- prisma db push --skip-generate --schema ./prisma/schema",
+		"migrate": "dotenv -c -e ../../.env -- prisma migrate dev --schema ./prisma/schema",
+		"studio": "dotenv -c -e ../../.env -- prisma studio --schema ./prisma/schema",
+		"format": "dotenv -c -e ../../.env -- prisma format --schema ./prisma/schema",
+		"validate": "dotenv -c -e ../../.env -- prisma validate --schema ./prisma/schema",
 		"type-check": "tsc --noEmit"
 	},
 	"types": "./**/.tsx",

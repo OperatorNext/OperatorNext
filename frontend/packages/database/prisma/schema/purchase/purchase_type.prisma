@@ -1,0 +1,4 @@
+enum PurchaseType {
+  SUBSCRIPTION
+  ONE_TIME
+} 

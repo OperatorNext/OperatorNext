@@ -1,0 +1,16 @@
+model Organization {
+  id                 String       @id
+  name               String
+  slug               String?
+  logo               String?
+  createdAt          DateTime
+  metadata           String?
+  paymentsCustomerId String?
+  members            Member[]
+  invitations        Invitation[]
+  purchases          Purchase[]
+  aiChats            AiChat[]
+
+  @@unique([slug])
+  @@map("organization")
+} 

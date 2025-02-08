@@ -1,0 +1,17 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["prismaSchemaFolder"]
+}
+
+generator zod {
+  provider         = "zod-prisma-types"
+  output           = "../src/zod"
+  createInputTypes = false
+  addIncludeType   = false
+  addSelectType    = false
+}

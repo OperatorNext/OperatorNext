@@ -1,0 +1,11 @@
+model AiChat {
+  id             String        @id @default(cuid())
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  userId         String?
+  user           User?         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title          String?
+  messages       Json[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+} 
