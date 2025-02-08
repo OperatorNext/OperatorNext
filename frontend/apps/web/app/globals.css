@@ -9,6 +9,87 @@
 
 @variant dark (&:where(.dark, .dark *));
 
+/* Modern transitions */
+@layer base {
+	* {
+		@apply transition-colors duration-200;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+
+	::selection {
+		@apply bg-primary/30 text-foreground;
+	}
+}
+
+/* Modern scrollbar */
+@layer utilities {
+	.modern-scrollbar {
+		scrollbar-width: thin;
+		scrollbar-color: var(--primary) transparent;
+	}
+
+	.modern-scrollbar::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	.modern-scrollbar::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.modern-scrollbar::-webkit-scrollbar-thumb {
+		background-color: var(--primary);
+		border-radius: 3px;
+	}
+}
+
+/* Smooth animations */
+@layer utilities {
+	.animate-fade {
+		animation: fadeIn 0.5s ease-out;
+	}
+
+	.animate-slide-in {
+		animation: slideIn 0.3s ease-out;
+	}
+
+	.animate-scale {
+		animation: scale 0.2s ease-out;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateY(10px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes scale {
+	from {
+		transform: scale(0.95);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
 pre.shiki {
 	@apply mb-4 rounded-lg p-6;
 }

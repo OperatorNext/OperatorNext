@@ -47,7 +47,7 @@ export function NavBar() {
 
 	useEffect(() => {
 		setMobileMenuOpen(false);
-	}, [localePathname]);
+	}, []);
 
 	const isDocsPage = localePathname.startsWith("/docs");
 

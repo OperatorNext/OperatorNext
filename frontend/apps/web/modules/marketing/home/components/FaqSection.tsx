@@ -40,7 +40,7 @@ export function FaqSection({ className }: { className?: string }) {
 					<p className="text-lg opacity-50">{t("faq.description")}</p>
 				</div>
 				<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-					{items.map((item, i) => (
+					{items.map((item, _i) => (
 						<div
 							key={`faq-item-${item.question}`}
 							className="rounded-lg border p-4 lg:p-6"

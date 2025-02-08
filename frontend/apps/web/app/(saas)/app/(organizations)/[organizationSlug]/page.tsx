@@ -1,7 +1,5 @@
+import { AiBrowser } from "@saas/ai/components/AiBrowser";
 import { getActiveOrganization } from "@saas/auth/lib/server";
-import OrganizationStart from "@saas/organizations/components/OrganizationStart";
-import { PageHeader } from "@saas/shared/components/PageHeader";
-import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -24,8 +22,6 @@ export default async function OrganizationPage({
 	params,
 }: { params: Promise<{ organizationSlug: string }> }) {
 	const { organizationSlug } = await params;
-	const t = await getTranslations();
-
 	const activeOrganization = await getActiveOrganization(
 		organizationSlug as string,
 	);
@@ -34,14 +30,5 @@ export default async function OrganizationPage({
 		return notFound();
 	}
 
-	return (
-		<div>
-			<PageHeader
-				title={activeOrganization.name}
-				subtitle={t("organizations.start.subtitle")}
-			/>
-
-			<OrganizationStart />
-		</div>
-	);
+	return <AiBrowser />;
 }

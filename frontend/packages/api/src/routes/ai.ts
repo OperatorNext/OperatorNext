@@ -1,5 +1,6 @@
 import { streamText, textModel } from "@repo/ai";
 import { db } from "@repo/database";
+import { logger } from "@repo/logs";
 import { Hono } from "hono";
 import { describeRoute } from "hono-openapi";
 import { validator } from "hono-openapi/zod";
@@ -19,39 +20,72 @@ export const aiRouter = new Hono()
 		),
 		async (c) => {
 			const query = c.req.valid("query");
-			const chats = await db.aiChat.findMany({
-				where: query?.organizationId
-					? {
-							organizationId: query.organizationId,
-						}
-					: {
-							userId: c.get("user").id,
-							organizationId: null,
-						},
+			const user = c.get("user");
+			logger.info("[AI] Fetching chats", {
+				userId: user.id,
+				organizationId: query?.organizationId,
 			});
 
-			return c.json(chats);
+			try {
+				const chats = await db.aiChat.findMany({
+					where: query?.organizationId
+						? {
+								organizationId: query.organizationId,
+							}
+						: {
+								userId: user.id,
+								organizationId: null,
+							},
+				});
+				logger.info("[AI] Chats fetched successfully", {
+					count: chats.length,
+				});
+				return c.json(chats);
+			} catch (error) {
+				logger.error("[AI] Error fetching chats", { error });
+				throw error;
+			}
 		},
 	)
 	.get("/chats/:id", async (c) => {
 		const { id } = c.req.param();
+		const user = c.get("user");
+		logger.info("[AI] Fetching chat", { chatId: id, userId: user.id });
 
-		const chat = await db.aiChat.findUnique({ where: { id } });
+		try {
+			const chat = await db.aiChat.findUnique({ where: { id } });
 
-		if (!chat) {
-			throw new HTTPException(404, { message: "Chat not found" });
+			if (!chat) {
+				logger.warn("[AI] Chat not found", { chatId: id });
+				throw new HTTPException(404, { message: "Chat not found" });
+			}
+
+			if (chat.organizationId) {
+				await verifyOrganizationMembership(
+					chat.organizationId,
+					user.id,
+				);
+				logger.info("[AI] Organization membership verified", {
+					organizationId: chat.organizationId,
+					userId: user.id,
+				});
+			} else if (chat.userId !== user.id) {
+				logger.warn("[AI] Unauthorized chat access", {
+					chatId: id,
+					userId: user.id,
+					chatUserId: chat.userId,
+				});
+				throw new HTTPException(403, { message: "Forbidden" });
+			}
+
+			return c.json(chat);
+		} catch (error) {
+			logger.error("[AI] Error fetching chat", {
+				chatId: id,
+				error,
+			});
+			throw error;
 		}
-
-		if (chat.organizationId) {
-			await verifyOrganizationMembership(
-				chat.organizationId,
-				c.get("user").id,
-			);
-		} else if (chat.userId !== c.get("user").id) {
-			throw new HTTPException(403, { message: "Forbidden" });
-		}
-
-		return c.json(chat);
 	})
 	.post(
 		"/chats",
@@ -159,39 +193,72 @@ export const aiRouter = new Hono()
 			const { messages } = c.req.valid("json");
 			const user = c.get("user");
 
-			const chat = await db.aiChat.findUnique({ where: { id } });
+			logger.info("[AI] Processing new message", {
+				chatId: id,
+				userId: user.id,
+				messageCount: messages.length,
+			});
 
-			if (!chat) {
-				throw new HTTPException(404, { message: "Chat not found" });
-			}
+			try {
+				const chat = await db.aiChat.findUnique({ where: { id } });
 
-			if (chat.organizationId) {
-				await verifyOrganizationMembership(
-					chat.organizationId,
-					user.id,
-				);
-			} else if (chat.userId !== c.get("user").id) {
-				throw new HTTPException(403, { message: "Forbidden" });
-			}
-
-			const response = streamText({
-				model: textModel,
-				messages,
-				async onFinish({ text }) {
-					await db.aiChat.update({
-						where: { id },
-						data: {
-							messages: [
-								...messages,
-								{ role: "assistant", content: text },
-							],
-						},
+				if (!chat) {
+					logger.warn("[AI] Chat not found for message", {
+						chatId: id,
 					});
-				},
-			});
+					throw new HTTPException(404, { message: "Chat not found" });
+				}
 
-			return response.toDataStreamResponse({
-				sendUsage: true,
-			});
+				if (chat.organizationId) {
+					await verifyOrganizationMembership(
+						chat.organizationId,
+						user.id,
+					);
+					logger.info(
+						"[AI] Organization membership verified for message",
+						{
+							organizationId: chat.organizationId,
+							userId: user.id,
+						},
+					);
+				} else if (chat.userId !== user.id) {
+					logger.warn("[AI] Unauthorized message attempt", {
+						chatId: id,
+						userId: user.id,
+						chatUserId: chat.userId,
+					});
+					throw new HTTPException(403, { message: "Forbidden" });
+				}
+
+				const response = streamText({
+					model: textModel,
+					messages,
+					async onFinish({ text }) {
+						logger.info("[AI] Message stream completed", {
+							chatId: id,
+							responseLength: text.length,
+						});
+						await db.aiChat.update({
+							where: { id },
+							data: {
+								messages: [
+									...messages,
+									{ role: "assistant", content: text },
+								],
+							},
+						});
+					},
+				});
+
+				return response.toDataStreamResponse({
+					sendUsage: true,
+				});
+			} catch (error) {
+				logger.error("[AI] Error processing message", {
+					chatId: id,
+					error,
+				});
+				throw error;
+			}
 		},
 	);

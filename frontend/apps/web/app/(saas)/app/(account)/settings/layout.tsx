@@ -62,7 +62,7 @@ export default async function SettingsLayout({ children }: PropsWithChildren) {
 	];
 
 	return (
-		<>
+		<div className="mx-auto w-full max-w-6xl px-4 md:px-6">
 			<PageHeader
 				title={t("settings.account.title")}
 				subtitle={t("settings.account.subtitle")}
@@ -72,6 +72,6 @@ export default async function SettingsLayout({ children }: PropsWithChildren) {
 			>
 				{children}
 			</SidebarContentLayout>
-		</>
+		</div>
 	);
 }
