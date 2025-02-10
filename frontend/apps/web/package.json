@@ -79,7 +79,7 @@
 		"@repo/tailwind-config": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
 		"@shikijs/rehype": "^2.3.2",
-		"@tailwindcss/postcss": "^4.0.4",
+		"@tailwindcss/postcss": "^4.0.5",
 		"@types/js-cookie": "^3.0.4",
 		"@types/mdx": "^2.0.13",
 		"@types/node": "22.13.1",
@@ -95,7 +95,7 @@
 		"postcss": "8.5.1",
 		"rehype-img-size": "^1.0.1",
 		"start-server-and-test": "^2.0.10",
-		"tailwindcss": "4.0.4",
+		"tailwindcss": "4.0.5",
 		"tailwindcss-animate": "^1.0.7"
 	},
 	"name": "@repo/web",
