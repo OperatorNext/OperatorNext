@@ -7,9 +7,9 @@
 		"@repo/mail": "workspace:*",
 		"@repo/payments": "workspace:*",
 		"@repo/utils": "workspace:*",
-		"better-auth": "1.1.16",
+		"better-auth": "1.1.17",
 		"cookie": "^1.0.2",
-		"next": "15.1.6"
+		"next": "15.1.7"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
