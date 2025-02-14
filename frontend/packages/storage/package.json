@@ -1,7 +1,7 @@
 {
 	"dependencies": {
-		"@aws-sdk/client-s3": "3.743.0",
-		"@aws-sdk/s3-request-presigner": "3.743.0",
+		"@aws-sdk/client-s3": "3.744.0",
+		"@aws-sdk/s3-request-presigner": "3.744.0",
 		"@repo/config": "workspace:*",
 		"@repo/logs": "workspace:*"
 	},
