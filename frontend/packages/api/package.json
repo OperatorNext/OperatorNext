@@ -23,9 +23,9 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/tsconfig": "workspace:*",
-		"@types/react": "19.0.8",
+		"@types/react": "19.0.10",
 		"encoding": "^0.1.13",
-		"prisma": "^6.3.1",
+		"prisma": "^6.4.0",
 		"typescript": "5.7.3"
 	},
 	"main": "./index.ts",
