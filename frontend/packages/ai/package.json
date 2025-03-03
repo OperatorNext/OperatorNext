@@ -9,8 +9,8 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/tsconfig": "workspace:*",
-		"@types/react": "19.0.8",
-		"typescript": "5.7.3"
+		"@types/react": "19.0.10",
+		"typescript": "5.8.2"
 	},
 	"main": "./index.ts",
 	"name": "@repo/ai",

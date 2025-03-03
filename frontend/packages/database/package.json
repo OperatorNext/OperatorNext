@@ -7,10 +7,10 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/tsconfig": "workspace:*",
-		"@types/node": "22.13.1",
+		"@types/node": "22.13.8",
 		"dotenv-cli": "^8.0.0",
-		"prisma": "^6.3.1",
-		"zod-prisma-types": "^3.2.3"
+		"prisma": "^6.4.1",
+		"zod-prisma-types": "^3.2.4"
 	},
 	"main": "./index.ts",
 	"name": "@repo/database",
