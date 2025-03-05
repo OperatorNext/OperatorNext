@@ -8,9 +8,9 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/tsconfig": "workspace:*",
-		"@types/node": "^22.13.1",
+		"@types/node": "^22.13.9",
 		"nanoid": "^5.1.2",
-		"tsx": "^4.19.2"
+		"tsx": "^4.19.3"
 	},
 	"name": "@repo/scripts",
 	"private": true,
