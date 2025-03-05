@@ -124,8 +124,8 @@ importers:
         specifier: ^4.1.50
         version: 4.1.50(react@19.0.0)(zod@3.24.2)
       better-auth:
-        specifier: 1.2.2
-        version: 1.2.2(typescript@5.8.2)
+        specifier: 1.2.3
+        version: 1.2.3(typescript@5.7.3)
       boring-avatars:
         specifier: ^1.11.2
         version: 1.11.2
@@ -454,8 +454,8 @@ importers:
         specifier: workspace:*
         version: link:../utils
       better-auth:
-        specifier: 1.2.2
-        version: 1.2.2(typescript@5.8.2)
+        specifier: 1.2.3
+        version: 1.2.3(typescript@5.7.3)
       cookie:
         specifier: ^1.0.2
         version: 1.0.2
@@ -3762,8 +3762,8 @@ packages:
     resolution: {integrity: sha512-lGe34o6EHj9y3Kts9R4ZYs/Gr+6N7MCaMlIFA3F1R2O5/m7K06AxfSeO5530PEERE6/WyEg3lsuyw4GHlPZHog==}
     engines: {node: ^4.5.0 || >= 5.9}
 
-  better-auth@1.2.2:
-    resolution: {integrity: sha512-zsynKwkMKeuKq1QQy80zLV9UehcM8yG0fjJSlGsb7oXWwgfgek5RVBptBFckZcq7z1e84WIqDvtypcgXx0xmlg==}
+  better-auth@1.2.3:
+    resolution: {integrity: sha512-y97/ah2SOWaW81IRg36m7xMSMVl7ATaHie/nhQ0in/reVlEX/6juVPszNqq0gcTwQtFsB8oe15wQKgdf4yHP9Q==}
 
   better-call@1.0.4:
     resolution: {integrity: sha512-NdAihYdkS0IOz1mtz8mw1gWacCxR9r921U8YqB+VB6++rt8edMG13vVL16Y4TBL4XkjMK/DUewEsOOFkw9LJYQ==}
@@ -10151,7 +10151,7 @@ snapshots:
 
   base64id@2.0.0: {}
 
-  better-auth@1.2.2(typescript@5.8.2):
+  better-auth@1.2.3(typescript@5.7.3):
     dependencies:
       '@better-auth/utils': 0.2.3
       '@better-fetch/fetch': 1.1.15
