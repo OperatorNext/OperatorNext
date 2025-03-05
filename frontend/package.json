@@ -7,7 +7,7 @@
 		"lint": "biome lint .",
 		"clean": "turbo clean",
 		"format": "biome format . --write",
-		"fix": "biome check . --write",
+		"fix": "biome check --fix --unsafe",
 		"e2e": "pnpm --filter web e2e",
 		"db:push": "pnpm --filter @repo/database push",
 		"db:generate": "pnpm --filter @repo/database generate",
