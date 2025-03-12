@@ -56,3 +56,5 @@ tmp/
 # UV 特定文件
 .uv/
 uv.lock 
+
+*/ouput
