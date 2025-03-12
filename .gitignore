@@ -68,3 +68,5 @@ uploads/
 !.github/assets/
 !static/brand/ 
 .vercel
+
+frontend/packages/database/prisma/src/zod/index.ts

@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { PropsWithChildren } from "react";
 import "./globals.css";
-import "cropperjs/dist/cropper.css";
 
 export const viewport: Viewport = {
 	width: "device-width",
