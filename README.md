@@ -2,9 +2,9 @@
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/brand/logo-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset=".github/assets/brand/logo.png">
-  <img alt="Shows a black OperatorNext Logo in light color mode and a white one in dark color mode." src=".github/assets/brand/logo.png"  width="full">
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/brand/operator-next-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset=".github/assets/brand/operator-next.png">
+  <img alt="Shows a black OperatorNext Logo in light color mode and a white one in dark color mode." src=".github/assets/brand/operator-next.png"  width="full">
 </picture>
 
 [![GitHub license](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/OperatorNext/OperatorNext/blob/main/LICENSE)
