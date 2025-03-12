@@ -26,7 +26,7 @@
 		"@repo/tsconfig": "workspace:*",
 		"@types/react": "19.0.10",
 		"encoding": "^0.1.13",
-		"prisma": "^6.4.1",
+		"prisma": "^6.5.0",
 		"typescript": "5.8.2"
 	},
 	"main": "./index.ts",
