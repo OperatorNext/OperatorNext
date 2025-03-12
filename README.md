@@ -1,8 +1,11 @@
 # OperatorNext 🤖
 
 <div align="center">
-
-<img src=".github/assets/brand/logo.png" alt="OperatorNext Logo" width="500"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/brand/logo-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset=".github/assets/brand/logo.png">
+  <img alt="Shows a black OperatorNext Logo in light color mode and a white one in dark color mode." src=".github/assets/brand/logo.png"  width="full">
+</picture>
 
 [![GitHub license](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/OperatorNext/OperatorNext/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/OperatorNext/OperatorNext)](https://github.com/OperatorNext/OperatorNext/stargazers)
