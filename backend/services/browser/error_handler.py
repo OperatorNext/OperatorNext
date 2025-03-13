@@ -1,7 +1,8 @@
 import traceback
 from datetime import datetime
-from typing import Optional
+
 from schemas.browser_task import ErrorMessage
+
 
 class ErrorHandler:
     """错误处理器"""
@@ -9,7 +10,7 @@ class ErrorHandler:
         self.task_stats = task_stats
         self.task_errors = task_errors
 
-    def handle_error(self, task_id: str, error: Exception, step: Optional[int] = None) -> ErrorMessage:
+    def handle_error(self, task_id: str, error: Exception, step: int | None = None) -> ErrorMessage:
         """处理错误并记录"""
         current_time = datetime.now().isoformat()
         

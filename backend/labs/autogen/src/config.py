@@ -17,7 +17,7 @@ load_dotenv()
 
 # 基础配置
 BASE_CONFIG: dict[str, Any] = {
-    "model": "gpt-4",  # 默认模型
+    "model": "gpt-4o",  # 默认模型
     "temperature": 0.7,  # 温度参数
     "max_tokens": 2000,  # 最大token数
     "top_p": 0.9,  # 采样参数
@@ -31,7 +31,7 @@ ASSISTANT_CONFIG: dict[str, Any] = {
     "llm_config": {
         **BASE_CONFIG,
         "api_key": os.getenv("OPENAI_API_KEY"),
-    }
+    },
 }
 
 # 用户代理配置
@@ -46,6 +46,7 @@ CONVERSATION_CONFIG: dict[str, Any] = {
     "max_turns": 10,  # 最大对话轮数
     "code_execution": True,  # 允许代码执行
 }
+
 
 def get_config(config_type: str = "base") -> dict[str, Any]:
     """
@@ -63,4 +64,4 @@ def get_config(config_type: str = "base") -> dict[str, Any]:
         "user_proxy": USER_PROXY_CONFIG,
         "conversation": CONVERSATION_CONFIG,
     }
-    return config_map.get(config_type, BASE_CONFIG) 
+    return config_map.get(config_type, BASE_CONFIG)

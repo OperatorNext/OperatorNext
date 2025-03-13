@@ -147,9 +147,9 @@ async def bing_search(keyword: str) -> None:
             error_screenshot = screenshots_dir / f"bing_error_{int(time.time())}.png"
             await client.page.screenshot(path=str(error_screenshot))
             print(f"已保存错误状态截图: {error_screenshot}")
-        except:
-            print("无法保存错误状态截图")
-            
+        except Exception as e:
+            print(f"无法保存错误状态截图: {e}")
+
         raise
 
     finally:

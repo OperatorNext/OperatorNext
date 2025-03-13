@@ -1,6 +1,8 @@
 import asyncio
 from typing import Any
+
 from fastapi import WebSocket
+
 
 class MessageProcessor:
     """消息处理器"""

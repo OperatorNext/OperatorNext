@@ -1,13 +1,12 @@
 {
-	"name": "operatornext",
+	"name": "supastarter-nextjs",
 	"private": true,
 	"scripts": {
-		"build": "dotenv -c -- turbo build",
+		"build": "dotenv -c -- turbo db:generate build",
 		"dev": "dotenv -c -- turbo dev --concurrency 15",
 		"lint": "biome lint .",
 		"clean": "turbo clean",
 		"format": "biome format . --write",
-		"fix": "biome check --fix --unsafe",
 		"e2e": "pnpm --filter web e2e",
 		"db:push": "pnpm --filter @repo/database push",
 		"db:generate": "pnpm --filter @repo/database generate",
@@ -22,10 +21,10 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@repo/tsconfig": "workspace:*",
-		"@types/node": "^22.13.10",
+		"@types/node": "^22.13.0",
 		"dotenv-cli": "^8.0.0",
-		"turbo": "^2.4.4",
-		"typescript": "5.8.2"
+		"turbo": "^2.4.0",
+		"typescript": "5.7.3"
 	},
 	"pnpm": {
 		"overrides": {
