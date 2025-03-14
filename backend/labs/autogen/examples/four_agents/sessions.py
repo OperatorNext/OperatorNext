@@ -116,16 +116,18 @@ async def check_selenium_status() -> tuple[bool, str]:
         selenium_url = get_selenium_url()
 
         # 将嵌套的async with合并为单一语句
-        async with aiohttp.ClientSession() as session:
-            async with session.get(f"{selenium_url}/status") as response:
-                if response.status == 200:
-                    data = await response.json()
-                    if data.get("value", {}).get("ready", False):
-                        return True, "Selenium Grid服务正常运行"
-                    else:
-                        return False, "Selenium Grid服务已启动，但未就绪"
+        async with (
+            aiohttp.ClientSession() as session,
+            session.get(f"{selenium_url}/status") as response,
+        ):
+            if response.status == 200:
+                data = await response.json()
+                if data.get("value", {}).get("ready", False):
+                    return True, "Selenium Grid服务正常运行"
                 else:
-                    return False, f"Selenium Grid服务返回错误码: {response.status}"
+                    return False, "Selenium Grid服务已启动，但未就绪"
+            else:
+                return False, f"Selenium Grid服务返回错误码: {response.status}"
     except Exception as e:
         return False, f"Selenium Grid服务检查失败: {str(e)}"
 
