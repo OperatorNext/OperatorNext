@@ -50,6 +50,10 @@ dependencies = [
     "pytest>=8.3.4",
     "requests>=2.32.3",
     "aiohttp>=3.11.11",
+    # VM控制相关
+    "docker>=7.0.0",
+    "vncdotool>=1.0.0",
+    "pillow>=10.0.0",
 ]
 
 [project.optional-dependencies]
@@ -88,6 +92,9 @@ lint.select = [
     "N",   # pep8-naming
     "SIM", # flake8-simplify
     "TCH", # flake8-type-checking
+]
+lint.ignore = [
+    "E501",  # 行太长
 ]
 fix = true
 target-version = "py311"

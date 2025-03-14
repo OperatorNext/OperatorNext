@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 import aiohttp
+import requests
 from playwright.async_api import Browser, BrowserContext, Page, async_playwright
 
 from .config import get_browserless_token, get_browserless_url, get_ws_endpoint
@@ -225,7 +226,7 @@ class HTTPBrowserlessClient:
         执行自定义函数
 
         Args:
-            code: 要执行的 JavaScript 代码
+            code: 要执行的 JavaScript 代码（传统 JavaScript 语法）
             context: 传递给函数的上下文对象
 
         Returns:
@@ -234,11 +235,7 @@ class HTTPBrowserlessClient:
         session = await self._ensure_session()
         api_url = self._get_api_url("function")
 
-        # 函数代码不应包含 import/export 语句，使用 function 函数定义
-        # 去掉 ES 模块语法 (export default)
-        if "export default" in code:
-            code = code.replace("export default", "")
-
+        # 传统 JavaScript 函数格式
         payload = {"code": code}
 
         if context:
@@ -249,7 +246,160 @@ class HTTPBrowserlessClient:
                 error_text = await response.text()
                 raise RuntimeError(f"执行函数失败: {response.status} - {error_text}")
 
-            return await response.json()
+            try:
+                # 尝试解析JSON响应
+                return await response.json()
+            except Exception as e:
+                # 如果不是JSON，返回原始文本
+                return {"text": await response.text(), "error": str(e)}
+
+    async def execute_function_esm(
+        self, code: str, context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
+        """
+        执行自定义 ESM 函数（使用 sourceType=module 参数）
+
+        注意：这需要 Browserless 服务器支持 ESM 模块，请确保已配置
+             `FUNCTION_ENABLE_ESMODULES=true` 环境变量
+
+        Args:
+            code: 要执行的 JavaScript ESM 代码 (使用 import/export 语法)
+            context: 传递给函数的上下文对象
+
+        Returns:
+            函数执行结果
+        """
+        session = await self._ensure_session()
+        # 添加 sourceType=module 参数以支持 ESM 模块
+        api_url = f"{self._get_api_url('function')}&sourceType=module"
+
+        # 两种格式支持：JavaScript 代码或 JSON 格式
+        if "import" in code or "export" in code:
+            # 对于 ESM 模块格式，直接发送 JavaScript 代码
+            headers = {"Content-Type": "application/javascript"}
+            async with session.post(api_url, headers=headers, data=code) as response:
+                if response.status != 200:
+                    error_text = await response.text()
+                    raise RuntimeError(
+                        f"执行 ESM 函数失败: {response.status} - {error_text}"
+                    )
+
+                try:
+                    # 尝试解析JSON响应
+                    return await response.json()
+                except Exception as e:
+                    # 如果不是JSON，返回原始文本
+                    return {"text": await response.text(), "error": str(e)}
+        else:
+            # 如果是普通代码或需要传递上下文，使用 JSON 格式
+            payload = {"code": code}
+            if context:
+                payload["context"] = context
+
+            async with session.post(api_url, json=payload) as response:
+                if response.status != 200:
+                    error_text = await response.text()
+                    raise RuntimeError(
+                        f"执行 ESM 函数失败: {response.status} - {error_text}"
+                    )
+
+                try:
+                    # 尝试解析JSON响应
+                    return await response.json()
+                except Exception as e:
+                    # 如果不是JSON，返回原始文本
+                    return {"text": await response.text(), "error": str(e)}
+
+    async def execute_function_with_optimal_format(
+        self, code: str, context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
+        """
+        智能选择最适合的函数执行格式
+
+        这个方法会自动检测代码是否包含 ESM 语法（import/export），并使用合适的方法执行，
+        如果执行失败，会自动尝试另一种格式。
+
+        Args:
+            code: 要执行的 JavaScript 代码
+            context: 传递给函数的上下文对象
+
+        Returns:
+            函数执行结果
+        """
+        # 检测是否含有 ESM 语法
+        has_esm_syntax = "import" in code or "export" in code
+
+        try:
+            # 首先尝试最可能成功的方法
+            if has_esm_syntax:
+                return await self.execute_function_esm(code, context)
+            else:
+                return await self.execute_function(code, context)
+        except Exception as e:
+            # 如果第一种方法失败，尝试另一种
+            try:
+                if has_esm_syntax:
+                    # 从 ESM 转为普通函数格式
+                    # 移除 import/export 语句，转为CommonJS格式
+                    simplified_code = self._convert_esm_to_commonjs(code)
+                    return await self.execute_function(simplified_code, context)
+                else:
+                    # 尝试使用 ESM 格式
+                    return await self.execute_function_esm(code, context)
+            except Exception as e2:
+                # 如果两种方法都失败，抛出完整错误信息
+                raise RuntimeError(
+                    f"无法执行函数代码。ESM错误: {e}, 常规错误: {e2}\n代码: {code[:200]}..."
+                )
+
+    def _convert_esm_to_commonjs(self, esm_code: str) -> str:
+        """
+        将 ESM 模块代码转换为 CommonJS 格式
+
+        这是一个简单的转换，不能处理所有复杂情况，但对于简单的代码应该有效
+
+        Args:
+            esm_code: ESM 模块格式的代码
+
+        Returns:
+            CommonJS 格式的代码
+        """
+        # 移除导入语句，在函数内使用 require 替代
+        import_lines = []
+        other_lines = []
+        export_default_found = False
+
+        for line in esm_code.split("\n"):
+            stripped = line.strip()
+            if stripped.startswith("import "):
+                # 收集导入语句，但不添加到新代码中
+                import_lines.append(line)
+            elif stripped.startswith("export default function"):
+                # 修改默认导出函数为普通函数
+                other_lines.append(
+                    line.replace("export default function", "function handler")
+                )
+                export_default_found = True
+            elif stripped.startswith("export default"):
+                # 修改默认导出为处理程序
+                other_lines.append(line.replace("export default", "const handler ="))
+                export_default_found = True
+            else:
+                other_lines.append(line)
+
+        # 如果没有找到默认导出，添加一个处理函数包装
+        if not export_default_found:
+            common_js = "function handler(args) {\n"
+            common_js += "\n".join(["  " + line for line in other_lines])
+            common_js += "\n}"
+        else:
+            common_js = "\n".join(other_lines)
+
+            # 确保最后有返回处理函数
+            if "return handler" not in common_js:
+                common_js += "\n\nreturn handler;"
+
+        return common_js
 
     async def download_file(
         self, code: str, output_path: str | Path, context: dict[str, Any] | None = None
@@ -460,3 +610,63 @@ async def create_http_client() -> HTTPBrowserlessClient:
     client = HTTPBrowserlessClient()
     await client.connect()
     return client
+
+
+async def execute_function_esm(
+    code: str,
+    context: dict[str, Any] | None = None,
+    headers: dict[str, str] | None = None,
+) -> dict[str, Any]:
+    """
+    通过 Browserless 的 function API 执行 ESM 模块代码
+
+    根据官方文档，function API 支持两种调用方式：
+    1. 直接发送 JavaScript 代码（Content-Type: application/javascript）
+    2. 发送包含代码和上下文的 JSON 对象（Content-Type: application/json）
+
+    Args:
+        code: 要执行的 JavaScript 代码（ECMAScript 模块格式）
+        context: 传递给函数的上下文对象
+        headers: 自定义请求头
+
+    Returns:
+        函数执行结果
+    """
+    try:
+        # 获取API URL
+        base_url = get_browserless_url()
+        token = get_browserless_token()
+
+        # 添加sourceType=module参数以支持ESM模块
+        api_url = f"{base_url}/function?token={token}&sourceType=module"
+
+        # 根据情况决定请求方式
+        if (
+            headers
+            and "Content-Type" in headers
+            and headers["Content-Type"] == "application/javascript"
+        ):
+            # 方式1: 直接发送JavaScript代码
+            response = requests.post(api_url, headers=headers, data=code)
+        else:
+            # 方式2: 发送JSON对象
+            payload = {"code": code}
+            if context:
+                payload["context"] = context
+
+            response = requests.post(api_url, json=payload)
+
+        # 处理响应
+        if response.status_code != 200:
+            error_text = response.text
+            raise RuntimeError(f"执行函数失败: {response.status_code} - {error_text}")
+
+        # 解析响应
+        try:
+            result = response.json()
+            return result
+        except Exception:
+            return {"data": response.text, "type": "text/plain"}
+
+    except Exception as e:
+        raise e
