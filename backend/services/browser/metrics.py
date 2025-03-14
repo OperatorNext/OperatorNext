@@ -1,12 +1,13 @@
+
 import psutil
-from typing import Dict
+
 
 class SystemMetricsCollector:
     """系统指标收集器"""
     def __init__(self, process):
         self.process = process
 
-    def get_metrics(self) -> Dict:
+    def get_metrics(self) -> dict:
         """获取系统资源使用指标"""
         try:
             # 获取进程的内存信息

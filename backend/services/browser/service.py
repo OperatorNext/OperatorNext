@@ -1,43 +1,45 @@
 import asyncio
+import contextlib
+import os
+import platform
+import sys
 import traceback
 import uuid
-import os
-import sys
-import platform
-import psutil
 from datetime import datetime
-from typing import Dict, Optional, List
 
+import psutil
 from fastapi import WebSocket
+
 from models.agent import create_agent
 from schemas.browser_task import BrowserTask, WSMessage
 
-from .metrics import SystemMetricsCollector
-from .error_handler import ErrorHandler
 from .callbacks import CallbackManager
+from .error_handler import ErrorHandler
 from .message_processor import MessageProcessor
+from .metrics import SystemMetricsCollector
+
 
 class BrowserService:
     """浏览器服务"""
     def __init__(self):
         print("\n=== BrowserService 初始化开始 ===")
         try:
-            self.tasks: Dict[str, BrowserTask] = {}
+            self.tasks: dict[str, BrowserTask] = {}
             print("✓ 任务字典初始化成功")
             
-            self.task_steps: Dict[str, List[Dict]] = {}
+            self.task_steps: dict[str, list[dict]] = {}
             print("✓ 步骤字典初始化成功")
             
-            self.task_result: Dict[str, Dict] = {}
+            self.task_result: dict[str, dict] = {}
             print("✓ 结果字典初始化成功")
             
-            self.task_errors: Dict[str, List[Dict]] = {}
+            self.task_errors: dict[str, list[dict]] = {}
             print("✓ 错误字典初始化成功")
             
-            self.task_metadata: Dict[str, Dict] = {}
+            self.task_metadata: dict[str, dict] = {}
             print("✓ 元数据字典初始化成功")
             
-            self.task_stats: Dict[str, Dict] = {}
+            self.task_stats: dict[str, dict] = {}
             print("✓ 统计数据字典初始化成功")
 
             # 初始化系统监控
@@ -105,7 +107,7 @@ class BrowserService:
             print(f"错误详情:\n{traceback.format_exc()}")
             raise
 
-    def get_task(self, task_id: str) -> Optional[BrowserTask]:
+    def get_task(self, task_id: str) -> BrowserTask | None:
         """获取任务"""
         print(f"\n=== 获取任务 (ID: {task_id}) ===")
         task = self.tasks.get(task_id)
@@ -182,7 +184,7 @@ class BrowserService:
                     browser = agent.browser
                     playwright_browser = await browser.get_playwright_browser()
                     contexts = playwright_browser.contexts
-                    print(f"✓ 成功连接到远程浏览器")
+                    print("✓ 成功连接到远程浏览器")
                     print(f"✓ 当前活动上下文数: {len(contexts)}")
                     print(f"✓ 浏览器版本: {playwright_browser.version}")
                     print("=== 浏览器连接验证完成 ===\n")
@@ -200,10 +202,8 @@ class BrowserService:
                 print("=== 任务执行完成 ===\n")
             finally:
                 message_processor_task.cancel()
-                try:
+                with contextlib.suppress(asyncio.CancelledError):
                     await message_processor_task
-                except asyncio.CancelledError:
-                    pass
 
         except Exception as e:
             print(f"Error in run_task: {e}")

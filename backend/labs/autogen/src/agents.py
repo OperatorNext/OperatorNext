@@ -13,9 +13,7 @@ from .config import ASSISTANT_CONFIG, USER_PROXY_CONFIG, get_config
 
 
 def create_assistant(
-    name: str | None = None,
-    system_message: str | None = None,
-    **kwargs
+    name: str | None = None, system_message: str | None = None, **kwargs
 ) -> autogen.AssistantAgent:
     """
     创建一个AI助手智能体
@@ -34,13 +32,12 @@ def create_assistant(
     if system_message:
         config["system_message"] = system_message
     config.update(kwargs)
-    
+
     return autogen.AssistantAgent(**config)
 
+
 def create_user_proxy(
-    name: str | None = None,
-    human_input_mode: str | None = None,
-    **kwargs
+    name: str | None = None, human_input_mode: str | None = None, **kwargs
 ) -> autogen.UserProxyAgent:
     """
     创建一个用户代理智能体
@@ -59,12 +56,12 @@ def create_user_proxy(
     if human_input_mode:
         config["human_input_mode"] = human_input_mode
     config.update(kwargs)
-    
+
     return autogen.UserProxyAgent(**config)
 
+
 def create_coding_assistant(
-    name: str = "代码助手",
-    system_message: str | None = None
+    name: str = "代码助手", system_message: str | None = None
 ) -> autogen.AssistantAgent:
     """
     创建一个专门用于编程的助手智能体
@@ -83,20 +80,18 @@ def create_coding_assistant(
     4. 优化代码性能
     请用中文回复，并确保代码符合PEP 8规范。
     """
-    
+
     return create_assistant(
         name=name,
         system_message=system_message or default_message,
         llm_config={
             **get_config("base"),
             "temperature": 0.5,  # 降低随机性，提高代码质量
-        }
+        },
     )
 
-def create_group_chat(
-    agents: list,
-    max_rounds: int = 10
-) -> autogen.GroupChat:
+
+def create_group_chat(agents: list, max_rounds: int = 10) -> autogen.GroupChat:
     """
     创建一个群组聊天
 
@@ -107,8 +102,4 @@ def create_group_chat(
     Returns:
         autogen.GroupChat: 群组聊天实例
     """
-    return autogen.GroupChat(
-        agents=agents,
-        messages=[],
-        max_rounds=max_rounds
-    ) 
+    return autogen.GroupChat(agents=agents, messages=[], max_rounds=max_rounds)

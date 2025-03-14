@@ -1,10 +1,11 @@
 from browser_use import SystemPrompt
 
+
 class ChineseSystemPrompt(SystemPrompt):
     def important_rules(self) -> str:
         # 获取父类的规则
         existing_rules = super().important_rules()
-        
+
         # 添加中文输出的规则
         new_rules = """
 9. MOST IMPORTANT RULE:
@@ -16,4 +17,4 @@ class ChineseSystemPrompt(SystemPrompt):
 - 所有最终结果(final result)必须使用中文输出!
 """
         # 合并规则
-        return f'{existing_rules}\n{new_rules}' 
+        return f"{existing_rules}\n{new_rules}"

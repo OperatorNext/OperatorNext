@@ -1,6 +1,7 @@
 import os
-from langchain_openai import ChatOpenAI
+
 from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
 
 # 加载环境变量
 load_dotenv()

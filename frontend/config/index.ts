@@ -113,53 +113,19 @@ export const config = {
 	payments: {
 		// define the products that should be available in the checkout
 		plans: {
+			// The free plan is treated differently. It will automatically be assigned if the user has no other plan.
 			free: {
 				isFree: true,
-				title: "免费版",
-				description: "适合个人开发者探索和学习的入门版本",
-				features: [
-					"每月 100 次自动化任务额度",
-					"基础浏览器自动化功能",
-					"单一浏览器实例",
-					"社区支持",
-					"基础任务模板",
-					"标准执行速度",
-					"7 天任务历史记录",
-				],
-				prices: [
-					{
-						type: "recurring",
-						productId: process.env
-							.NEXT_PUBLIC_PRODUCT_ID_FREE as string,
-						interval: "month",
-						amount: 0,
-						currency: "USD",
-					},
-				],
 			},
 			pro: {
 				recommended: true,
-				title: "专业版",
-				description: "适合专业开发者和小型团队使用的高级版本",
-				features: [
-					"每月 1000 次自动化任务额度",
-					"高级浏览器自动化功能",
-					"最多 5 个并行浏览器实例",
-					"优先邮件支持",
-					"自定义任务模板",
-					"优化执行速度",
-					"30 天任务历史记录",
-					"API 访问权限",
-					"高级数据导出",
-					"团队协作功能",
-				],
 				prices: [
 					{
 						type: "recurring",
 						productId: process.env
 							.NEXT_PUBLIC_PRODUCT_ID_PRO_MONTHLY as string,
 						interval: "month",
-						amount: 19.99,
+						amount: 29,
 						currency: "USD",
 						seatBased: true,
 						trialPeriodDays: 7,
@@ -169,7 +135,7 @@ export const config = {
 						productId: process.env
 							.NEXT_PUBLIC_PRODUCT_ID_PRO_YEARLY as string,
 						interval: "year",
-						amount: 199.99,
+						amount: 290,
 						currency: "USD",
 						seatBased: true,
 						trialPeriodDays: 7,
@@ -178,34 +144,17 @@ export const config = {
 			},
 			enterprise: {
 				isEnterprise: true,
-				title: "企业版",
-				description: "为大型企业和团队提供的定制化解决方案",
-				features: [
-					"无限自动化任务配额",
-					"企业级浏览器自动化功能",
-					"无限并行浏览器实例",
-					"24/7 专属技术支持",
-					"专属解决方案架构师",
-					"最高优先级执行速度",
-					"365天任务历史记录",
-					"完整 API 访问权限",
-					"企业级数据分析报告",
-					"高级安全控制面板",
-					"私有化部署选项",
-					"SLA 服务保障",
-					"专属培训服务",
-				],
-				prices: [
-					{
-						type: "recurring",
-						productId: process.env
-							.NEXT_PUBLIC_PRODUCT_ID_ENTERPRISE as string,
-						interval: "month",
-						amount: 999,
-						currency: "USD",
-					},
-				],
 			},
+			// lifetime: {
+			// 	prices: [
+			// 		{
+			// 			type: "one-time",
+			// 			productId: "price_1PHjoxFkmmuOs718Orzx98rv",
+			// 			amount: 799,
+			// 			currency: "USD",
+			// 		},
+			// 	],
+			// },
 		},
 	},
 } as const satisfies Config;

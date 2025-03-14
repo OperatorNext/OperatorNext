@@ -1,12 +1,15 @@
-from datetime import datetime
-import traceback
-from typing import Any, Dict, Callable
 import asyncio
-from schemas.browser_task import WSMessage, StepMessage, ResultMessage, Action
+import traceback
+from collections.abc import Callable
+from datetime import datetime
+from typing import Any
+
+from schemas.browser_task import Action, ResultMessage, StepMessage, WSMessage
+
 
 class CallbackManager:
     """回调管理器"""
-    def __init__(self, task_id: str, task_stats: Dict, task_steps: Dict, task_result: Dict,
+    def __init__(self, task_id: str, task_stats: dict, task_steps: dict, task_result: dict,
                  metrics_collector: Any, error_handler: Any, message_queue: asyncio.Queue):
         self.task_id = task_id
         self.task_stats = task_stats
@@ -178,7 +181,7 @@ class CallbackManager:
                 )
                 
                 # 记录简要日志
-                print(f"\n任务完成:")
+                print("\n任务完成:")
                 print(f"总步数: {total_steps}")
                 print(f"执行时长: {duration:.2f}秒")
                 print(f"最终结果: {final_result}")

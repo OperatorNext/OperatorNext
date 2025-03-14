@@ -53,6 +53,12 @@ services:
       # Browserless 配置
       BROWSERLESS_URL: "http://chrome:3000"
       BROWSERLESS_TOKEN: "browser-token-2024"
+      # VM 配置
+      VM_VNC_URL: "vmhost:5900"
+      VM_VNC_PASSWORD: "vncpassword"
+      # Selenium 配置
+      SELENIUM_URL: "http://selenium-hub:4444"
+      SELENIUM_BROWSER: "chromium"
     depends_on:
       postgres:
         condition: service_healthy
@@ -62,10 +68,37 @@ services:
         condition: service_healthy
       chrome:
         condition: service_started
+      vmhost:
+        condition: service_started
+      selenium-hub:
+        condition: service_started
+
+  # VM 虚拟机服务
+  vmhost:
+    build:
+      context: ./backend/docker
+      dockerfile: Dockerfile.vm
+    container_name: operatornext-vmhost
+    restart: unless-stopped
+    ports:
+      - "5901:5901"  # VNC 服务端口
+      - "6080:6080"  # NoVNC 网页界面端口
+    environment:
+      - VNC_PASSWORD=ubuntu
+    volumes:
+      - vm_data:/home/ubuntu/data
+    healthcheck:
+      test: ["CMD", "pgrep", "Xtigervnc"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    shm_size: '1gb'
 
   # Chrome 浏览器服务
   chrome:
-    image: browserless/chrome:latest
+    build:
+      context: ./docker/browserless
+      dockerfile: Dockerfile
     platform: linux/arm64
     container_name: operatornext-chrome
     environment:
@@ -87,10 +120,17 @@ services:
       - SWAGGER_SERVER=http://localhost:13000
       
       # 浏览器配置
-      - DEFAULT_HEADLESS=false
+      - DEFAULT_HEADLESS=true
       - DEFAULT_IGNORE_HTTPS_ERRORS=true
       - DEFAULT_USER_DATA_DIR=/tmp/browserless-data-dir
       - DOWNLOAD_DIR=/tmp/downloads
+      
+      # ESM模块支持
+      - FUNCTION_ENABLE_ESMODULES=true
+      - FUNCTION_EXTERNALS=["@faker-js/faker", "esm"]
+      - ALLOW_GET=true
+      - FUNCTION_BUILT_INS=["url"]
+      - FUNCTION_ENV_VARS=[]
 
     shm_size: '2gb'
     ports:
@@ -168,6 +208,93 @@ services:
       /usr/bin/mc anonymous set public myminio/avatars;
       exit 0;
       "
+  
+  # Selenium Grid Hub
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: operatornext-selenium-hub
+    restart: unless-stopped
+    ports:
+      - "4444:4444"
+    environment:
+      - GRID_MAX_SESSION=16
+      - GRID_TIMEOUT=300
+      - GRID_BROWSER_TIMEOUT=300
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Selenium Chromium Node (替代Chrome，支持ARM64架构)
+  selenium-chromium:
+    image: selenium/node-chromium:latest
+    container_name: operatornext-selenium-chromium
+    platform: linux/arm64
+    restart: unless-stopped
+    shm_size: '2g'
+    depends_on:
+      selenium-hub:
+        condition: service_started
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_SESSION_TIMEOUT=300
+      - SE_VNC_NO_PASSWORD=1
+    ports:
+      - "7900:7900"  # VNC 可视化界面端口
+    volumes:
+      - /dev/shm:/dev/shm
+
+  # Selenium Firefox Node
+  selenium-firefox:
+    image: selenium/node-firefox:latest
+    container_name: operatornext-selenium-firefox
+    platform: linux/arm64
+    restart: unless-stopped
+    shm_size: '2g'
+    depends_on:
+      selenium-hub:
+        condition: service_started
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_SESSION_TIMEOUT=300
+      - SE_VNC_NO_PASSWORD=1
+    ports:
+      - "7901:7900"  # VNC 可视化界面端口
+    volumes:
+      - /dev/shm:/dev/shm
+
+  # Selenium Edge Node - 目前在ARM架构(如M1/M2 Mac)上不可用
+  # 如果需要Edge浏览器支持，请在x86_64架构机器上使用，或等待官方支持ARM
+  # selenium-edge:
+  #   image: selenium/node-edge:4.29.0-20250222
+  #   container_name: operatornext-selenium-edge
+  #   restart: unless-stopped
+  #   platform: linux/amd64  # 尝试指定平台，需要Docker启用模拟
+  #   shm_size: '2g'
+  #   depends_on:
+  #     selenium-hub:
+  #       condition: service_started
+  #   environment:
+  #     - SE_EVENT_BUS_HOST=selenium-hub
+  #     - SE_EVENT_BUS_PUBLISH_PORT=4442
+  #     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+  #     - SE_NODE_MAX_SESSIONS=4
+  #     - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+  #     - SE_NODE_SESSION_TIMEOUT=300
+  #     - SE_VNC_NO_PASSWORD=1
+  #   ports:
+  #     - "7902:7900"  # VNC 可视化界面端口
+  #   volumes:
+  #     - /dev/shm:/dev/shm
 
 networks:
   default:
@@ -185,4 +312,10 @@ volumes:
     name: ${MINIO_VOLUME_NAME}
   browserless-data:
     name: operatornext-browserless-data
+    driver: local
+  vm_data:
+    name: operatornext-vm-data
+    driver: local
+  selenium-data:
+    name: operatornext-selenium-data
     driver: local
